@@ -1,0 +1,37 @@
+﻿<!-- Lista de periodos usando tablas -->
+
+@model List<Repositorio.tb_Periodo>
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2 class="page-header">
+    <a class="btn btn-default pull-right" href="~/home/crud">Nuevo Periodo</a>
+    Periodos
+</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:100px;">Mes</th>
+            <th style="width:100px;">Año</th>
+            <th style="width:200px;">Estado</th>
+            <th style="width:100px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <th>@m.Mes </th>
+                <th>@m.Anio </th>
+                <th>@m.tb_Estado.DescripcionEstado </th>
+                <th>
+                    <a class="btn btn-xs btn-default" href="~/home/ver/@m.IdPeriodo ">Visualizar</a>
+                    <a class="btn btn-xs btn-primary" href="~/home/crud/@m.IdPeriodo ">Editar</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+
+</table>

@@ -1,0 +1,5 @@
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\PlantillaObjetos\bin\Debug\PlantillaObjetos.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\PlantillaObjetos\bin\Debug\PlantillaObjetos.pdb
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\PlantillaObjetos\obj\Debug\PlantillaObjetos.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\PlantillaObjetos\obj\Debug\PlantillaObjetos.pdb
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\PlantillaObjetos\obj\Debug\PlantillaObjetos.csprojResolveAssemblyReference.cache

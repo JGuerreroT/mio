@@ -1,0 +1,7 @@
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Seguridad\bin\Debug\Seguridad.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Seguridad\bin\Debug\Seguridad.pdb
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Seguridad\bin\Debug\Helper.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Seguridad\bin\Debug\Helper.pdb
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Seguridad\obj\Debug\Seguridad.csprojResolveAssemblyReference.cache
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Seguridad\obj\Debug\Seguridad.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Seguridad\obj\Debug\Seguridad.pdb

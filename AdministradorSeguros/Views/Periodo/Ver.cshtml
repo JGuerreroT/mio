@@ -1,0 +1,23 @@
+﻿@model Repositorio.tb_Periodo
+@{
+    ViewBag.Title = Model.Anio + "" + Model.Mes;
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/periodo">Periodos</a></li>
+    <li class="active">@(Model.Anio + "" + Model.Mes)</li>
+</ol>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Información del Periodo</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Año</dt>
+            <dd>@Model.Anio</dd>
+            <dt>Mes</dt>
+            <dd>@Model.Mes</dd>
+            <dt>Estado</dt>
+            <dd>@Model.tb_Estado.DescripcionEstado</dd>
+        </dl>
+    </div>
+</div>
