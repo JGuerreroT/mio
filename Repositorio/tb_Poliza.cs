@@ -74,6 +74,12 @@ namespace Repositorio
 
         public decimal PorcentajeGarantizado { get; set; }
 
+        public decimal PensionIncial { get; set; }
+
+        public decimal PensionDevengue { get; set; }
+
+        public decimal PensionReserva { get; set; }
+
         public virtual tb_Cobertura tb_Cobertura { get; set; }
 
         public virtual tb_Cotizacion tb_Cotizacion { get; set; }

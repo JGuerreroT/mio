@@ -9,7 +9,7 @@
 
 <html>
 <head>
-    <title>@ViewBag.Title  | Portfolio V 1.0.0</title>
+    <title>@ViewBag.Title  | Administrador Seguros RRVV V 1.0.0</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     
@@ -45,8 +45,21 @@
                         <li>
                             <a href="~/periodo">Periodo</a>
                         </li>
-                        <li>
-                            <a href="~/poliza">Poliza</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Poliza<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="~/poliza">Buscar Poliza</a>
+                                </li>
+                                <li>
+                                    <a href="~/#">Nueva Póliza</a>
+                                </li>
+                                <li>
+                                    <a href="~/#">Importar Pólizas</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="~/admin/experiencia?tipo=2">Reserva</a>

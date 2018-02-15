@@ -132,6 +132,7 @@
     <Content Include="assets\images\ajax-loader.gif" />
     <Content Include="assets\images\Logo.jpg" />
     <Content Include="assets\images\Logo.png" />
+    <Content Include="assets\images\Logo2.jpg" />
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\ini.js" />
     <Content Include="assets\js\jquery-3.3.1.min.js" />

@@ -328,6 +328,18 @@ namespace Repositorio
                 .HasPrecision(18, 5);
 
             modelBuilder.Entity<tb_Poliza>()
+                .Property(e => e.PensionIncial)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_Poliza>()
+                .Property(e => e.PensionDevengue)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_Poliza>()
+                .Property(e => e.PensionReserva)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_Poliza>()
                 .HasMany(e => e.tb_Foto)
                 .WithRequired(e => e.tb_Poliza)
                 .WillCascadeOnDelete(false);
