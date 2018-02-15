@@ -61,6 +61,7 @@
     <Compile Include="tb_FactorSeguridad.cs" />
     <Compile Include="tb_Foto.cs" />
     <Compile Include="tb_FotoDetalle.cs" />
+    <Compile Include="tb_FotoDetallePoliza.cs" />
     <Compile Include="tb_IPC.cs" />
     <Compile Include="tb_Modalidad.cs" />
     <Compile Include="tb_Moneda.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="tb_RelacionFamiliar.cs" />
     <Compile Include="tb_Reserva.cs" />
     <Compile Include="tb_ReservaDetalle.cs" />
+    <Compile Include="tb_Rol.cs" />
     <Compile Include="tb_Salud.cs" />
     <Compile Include="tb_Sepelio.cs" />
     <Compile Include="tb_Sexo.cs" />
@@ -82,7 +84,6 @@
     <Compile Include="tb_Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

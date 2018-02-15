@@ -27,6 +27,10 @@ namespace Repositorio
         [StringLength(32)]
         public string Password { get; set; }
 
-        public int? IdEstado { get; set; }
+        public int IdEstado { get; set; }
+
+        public int IdRol { get; set; }
+
+        public virtual tb_Rol tb_Rol { get; set; }
     }
 }

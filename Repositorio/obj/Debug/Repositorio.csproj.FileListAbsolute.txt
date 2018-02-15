@@ -6,4 +6,4 @@ D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Debug\EntityFrame
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Debug\EntityFramework.SqlServer.xml
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.dll
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.pdb
-D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Debug\Repositorio.dll.config
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.csprojResolveAssemblyReference.cache

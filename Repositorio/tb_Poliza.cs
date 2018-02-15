@@ -11,7 +11,7 @@ namespace Repositorio
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tb_Poliza()
         {
-            tb_Foto = new HashSet<tb_Foto>();
+            tb_FotoDetalle = new HashSet<tb_FotoDetalle>();
             tb_PolizaDetalle = new HashSet<tb_PolizaDetalle>();
         }
 
@@ -85,7 +85,7 @@ namespace Repositorio
         public virtual tb_Cotizacion tb_Cotizacion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_Foto> tb_Foto { get; set; }
+        public virtual ICollection<tb_FotoDetalle> tb_FotoDetalle { get; set; }
 
         public virtual tb_Modalidad tb_Modalidad { get; set; }
 

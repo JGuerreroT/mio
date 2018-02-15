@@ -11,7 +11,8 @@ namespace Repositorio
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tb_FotoDetalle()
         {
-            tb_ReservaDetalle = new HashSet<tb_ReservaDetalle>();
+            tb_FotoDetallePoliza = new HashSet<tb_FotoDetallePoliza>();
+            tb_Reserva = new HashSet<tb_Reserva>();
         }
 
         [Key]
@@ -19,51 +20,76 @@ namespace Repositorio
 
         public int IdFoto { get; set; }
 
-        public int IdDetallePoliza { get; set; }
-
         public int IdPoliza { get; set; }
 
-        public int IdPersona { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Nombre { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Apellido { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string CUSSPP { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string DNI { get; set; }
+        public int NumeroPoliza { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime FechaNacimiento { get; set; }
+        public DateTime FechaDevengue { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime FechaFallecimiento { get; set; }
+        public DateTime FechaVigencia { get; set; }
 
-        public int IdEstado { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime FechaEnvio { get; set; }
 
-        public int IdSexo { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime FechaNotificacion { get; set; }
 
-        public int IdRelacionFamiliar { get; set; }
+        public int IdCobertura { get; set; }
 
-        public int IdSalud { get; set; }
+        public int IdModalidad { get; set; }
 
-        public decimal PorcentajeBeneficio { get; set; }
+        public int PeriodoDiferido { get; set; }
 
-        public int IdTipoPensionista { get; set; }
+        public int PeriodoGarantizado { get; set; }
 
-        public int IdTipoPersona { get; set; }
+        public bool Gratificacion { get; set; }
+
+        public bool DerechoACrecer { get; set; }
+
+        public bool Calce { get; set; }
+
+        public bool Repacto { get; set; }
+
+        public decimal Prima { get; set; }
+
+        public decimal CICInical { get; set; }
+
+        public decimal CICFInal { get; set; }
+
+        public decimal TasaVenta { get; set; }
+
+        public decimal TasaReserva { get; set; }
+
+        public bool RentaTemporal { get; set; }
+
+        public decimal PorcentajeRentaTemporal { get; set; }
+
+        public int PeriodoInicialRentaTemporal { get; set; }
+
+        public int IdCotizacion { get; set; }
+
+        public int IdPeriodoPoliza { get; set; }
+
+        public bool Estudiante { get; set; }
+
+        public decimal PorcentajeGarantizado { get; set; }
+
+        public decimal PensionIncial { get; set; }
+
+        public decimal PensionDevengue { get; set; }
+
+        public decimal PensionReserva { get; set; }
 
         public virtual tb_Foto tb_Foto { get; set; }
 
+        public virtual tb_Poliza tb_Poliza { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_ReservaDetalle> tb_ReservaDetalle { get; set; }
+        public virtual ICollection<tb_FotoDetallePoliza> tb_FotoDetallePoliza { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_Reserva> tb_Reserva { get; set; }
     }
 }

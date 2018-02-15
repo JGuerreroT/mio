@@ -17,7 +17,7 @@ namespace Repositorio
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdReserva { get; set; }
 
-        public int IdFotoDetalle { get; set; }
+        public int IdFotoDetallePoliza { get; set; }
 
         public decimal ReservaMatematica { get; set; }
 
@@ -27,7 +27,7 @@ namespace Repositorio
 
         public decimal PensionReserva { get; set; }
 
-        public virtual tb_FotoDetalle tb_FotoDetalle { get; set; }
+        public virtual tb_FotoDetallePoliza tb_FotoDetallePoliza { get; set; }
 
         public virtual tb_Reserva tb_Reserva { get; set; }
     }

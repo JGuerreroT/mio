@@ -20,6 +20,7 @@ namespace Repositorio
         public virtual DbSet<tb_FactorSeguridad> tb_FactorSeguridad { get; set; }
         public virtual DbSet<tb_Foto> tb_Foto { get; set; }
         public virtual DbSet<tb_FotoDetalle> tb_FotoDetalle { get; set; }
+        public virtual DbSet<tb_FotoDetallePoliza> tb_FotoDetallePoliza { get; set; }
         public virtual DbSet<tb_IPC> tb_IPC { get; set; }
         public virtual DbSet<tb_Modalidad> tb_Modalidad { get; set; }
         public virtual DbSet<tb_Moneda> tb_Moneda { get; set; }
@@ -30,6 +31,7 @@ namespace Repositorio
         public virtual DbSet<tb_RelacionFamiliar> tb_RelacionFamiliar { get; set; }
         public virtual DbSet<tb_Reserva> tb_Reserva { get; set; }
         public virtual DbSet<tb_ReservaDetalle> tb_ReservaDetalle { get; set; }
+        public virtual DbSet<tb_Rol> tb_Rol { get; set; }
         public virtual DbSet<tb_Salud> tb_Salud { get; set; }
         public virtual DbSet<tb_Sepelio> tb_Sepelio { get; set; }
         public virtual DbSet<tb_Sexo> tb_Sexo { get; set; }
@@ -108,6 +110,11 @@ namespace Repositorio
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tb_Estado>()
+                .HasMany(e => e.tb_Foto)
+                .WithRequired(e => e.tb_Estado)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tb_Estado>()
                 .HasMany(e => e.tb_Periodo)
                 .WithRequired(e => e.tb_Estado)
                 .WillCascadeOnDelete(false);
@@ -132,30 +139,6 @@ namespace Repositorio
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tb_Foto>()
-                .Property(e => e.Prima)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<tb_Foto>()
-                .Property(e => e.CICInical)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<tb_Foto>()
-                .Property(e => e.CICFInal)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<tb_Foto>()
-                .Property(e => e.TasaVenta)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<tb_Foto>()
-                .Property(e => e.TasaReserva)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<tb_Foto>()
-                .Property(e => e.PorcentajeRentaTemporal)
-                .HasPrecision(18, 5);
-
-            modelBuilder.Entity<tb_Foto>()
                 .HasMany(e => e.tb_FotoDetalle)
                 .WithRequired(e => e.tb_Foto)
                 .WillCascadeOnDelete(false);
@@ -166,28 +149,79 @@ namespace Repositorio
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tb_FotoDetalle>()
-                .Property(e => e.Nombre)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tb_FotoDetalle>()
-                .Property(e => e.Apellido)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tb_FotoDetalle>()
-                .Property(e => e.CUSSPP)
-                .IsFixedLength();
-
-            modelBuilder.Entity<tb_FotoDetalle>()
-                .Property(e => e.DNI)
-                .IsFixedLength();
-
-            modelBuilder.Entity<tb_FotoDetalle>()
-                .Property(e => e.PorcentajeBeneficio)
+                .Property(e => e.Prima)
                 .HasPrecision(18, 5);
 
             modelBuilder.Entity<tb_FotoDetalle>()
-                .HasMany(e => e.tb_ReservaDetalle)
+                .Property(e => e.CICInical)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .Property(e => e.CICFInal)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .Property(e => e.TasaVenta)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .Property(e => e.TasaReserva)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .Property(e => e.PorcentajeRentaTemporal)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .Property(e => e.PorcentajeGarantizado)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .Property(e => e.PensionIncial)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .Property(e => e.PensionDevengue)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .Property(e => e.PensionReserva)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .HasMany(e => e.tb_FotoDetallePoliza)
                 .WithRequired(e => e.tb_FotoDetalle)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tb_FotoDetalle>()
+                .HasMany(e => e.tb_Reserva)
+                .WithRequired(e => e.tb_FotoDetalle)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tb_FotoDetallePoliza>()
+                .Property(e => e.Nombre)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tb_FotoDetallePoliza>()
+                .Property(e => e.Apellido)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tb_FotoDetallePoliza>()
+                .Property(e => e.CUSSPP)
+                .IsFixedLength();
+
+            modelBuilder.Entity<tb_FotoDetallePoliza>()
+                .Property(e => e.DNI)
+                .IsFixedLength();
+
+            modelBuilder.Entity<tb_FotoDetallePoliza>()
+                .Property(e => e.PorcentajeBeneficio)
+                .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_FotoDetallePoliza>()
+                .HasMany(e => e.tb_ReservaDetalle)
+                .WithRequired(e => e.tb_FotoDetallePoliza)
+                .HasForeignKey(e => e.IdReservaDetalle)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tb_IPC>()
@@ -340,7 +374,7 @@ namespace Repositorio
                 .HasPrecision(18, 5);
 
             modelBuilder.Entity<tb_Poliza>()
-                .HasMany(e => e.tb_Foto)
+                .HasMany(e => e.tb_FotoDetalle)
                 .WithRequired(e => e.tb_Poliza)
                 .WillCascadeOnDelete(false);
 
@@ -418,6 +452,15 @@ namespace Repositorio
             modelBuilder.Entity<tb_ReservaDetalle>()
                 .Property(e => e.PensionReserva)
                 .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_Rol>()
+                .Property(e => e.DescripcionRol)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tb_Rol>()
+                .HasMany(e => e.tb_Usuario)
+                .WithRequired(e => e.tb_Rol)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tb_Salud>()
                 .Property(e => e.DescripcionSalud)

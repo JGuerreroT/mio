@@ -21,6 +21,8 @@ namespace Repositorio
 
         public int IdFoto { get; set; }
 
+        public int IdFotoDetalle { get; set; }
+
         [Column(TypeName = "date")]
         public DateTime FechaReserva { get; set; }
 
@@ -63,6 +65,8 @@ namespace Repositorio
         public virtual tb_FactorSeguridad tb_FactorSeguridad { get; set; }
 
         public virtual tb_Foto tb_Foto { get; set; }
+
+        public virtual tb_FotoDetalle tb_FotoDetalle { get; set; }
 
         public virtual tb_IPC tb_IPC { get; set; }
 
