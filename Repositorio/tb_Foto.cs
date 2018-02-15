@@ -81,10 +81,10 @@ namespace Repositorio
 
         public virtual tb_Periodo tb_Periodo { get; set; }
 
+        public virtual tb_Poliza tb_Poliza { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_FotoDetalle> tb_FotoDetalle { get; set; }
-
-        public virtual tb_Poliza tb_Poliza { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_Reserva> tb_Reserva { get; set; }

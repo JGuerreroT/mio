@@ -26,7 +26,7 @@ namespace Model
             catch (Exception e)
             {
 
-                ELog.save(this, e); //throw;
+                throw;//ELog.save(this, e); //throw;//
             }
 
             return estados;
@@ -48,7 +48,7 @@ namespace Model
             catch (Exception e)
             {
 
-                ELog.save(this, e); //throw;
+                throw;//ELog.save(this, e); //throw;
             }
 
             return estado;

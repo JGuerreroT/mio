@@ -161,10 +161,6 @@ namespace Repositorio
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tb_Foto>()
-                .HasOptional(e => e.tb_Poliza)
-                .WithRequired(e => e.tb_Foto);
-
-            modelBuilder.Entity<tb_Foto>()
                 .HasMany(e => e.tb_Reserva)
                 .WithRequired(e => e.tb_Foto)
                 .WillCascadeOnDelete(false);
@@ -330,6 +326,11 @@ namespace Repositorio
             modelBuilder.Entity<tb_Poliza>()
                 .Property(e => e.PorcentajeGarantizado)
                 .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_Poliza>()
+                .HasMany(e => e.tb_Foto)
+                .WithRequired(e => e.tb_Poliza)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tb_Poliza>()
                 .HasMany(e => e.tb_PolizaDetalle)

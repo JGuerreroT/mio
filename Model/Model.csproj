@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="EstadoBL.cs" />
     <Compile Include="PeriodoBL.cs" />
+    <Compile Include="PolizaBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioBL.cs" />
   </ItemGroup>
@@ -72,7 +73,7 @@
       <Name>PlantillaObjetos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repositorio\Repositorio.csproj">
-      <Project>{196ee0c3-95bc-4849-a029-a13ada70e7a4}</Project>
+      <Project>{4e3c70dd-d0d0-4447-8fe8-13c7a1e78281}</Project>
       <Name>Repositorio</Name>
     </ProjectReference>
     <ProjectReference Include="..\Seguridad\Seguridad.csproj">

@@ -31,7 +31,7 @@ namespace Model
             catch (Exception e)
             {
 
-                ELog.save(this, e); //throw;
+                throw;//ELog.save(this, e); //throw;
             }
 
             return periodos;
@@ -114,7 +114,7 @@ namespace Model
             catch (Exception e)
             {
 
-                ELog.save(this, e); //throw;
+                throw;//ELog.save(this, e); //throw;
             }
 
             return grid.responde();
@@ -143,7 +143,7 @@ namespace Model
             catch (Exception e)
             {
 
-                ELog.save(this, e); //throw;
+                throw;//ELog.save(this, e); //throw;
             }
 
             return periodo;
@@ -173,7 +173,7 @@ namespace Model
             catch (Exception e)
             {
 
-                ELog.save(this, e); //throw;
+                throw;//ELog.save(this, e); //throw;
             }
 
             return rm;

@@ -53,7 +53,7 @@ namespace Model
             }
             catch (Exception e)
             {
-                ELog.save(this, e); //throw;
+                throw;// ELog.save(this, e); //throw;
             }
 
             return rm;
@@ -74,7 +74,7 @@ namespace Model
             catch (Exception e)
             {
 
-                ELog.save(this, e); //throw;
+                throw;//ELog.save(this, e); //throw;
             }
 
             return usuario;
@@ -108,7 +108,7 @@ namespace Model
             catch (Exception e)
             {
 
-                ELog.save(this, e); //throw;
+                throw;// ELog.save(this, e); //throw;
             }
 
             return rm;
@@ -149,7 +149,7 @@ namespace Model
             catch (Exception e)
             {
 
-                ELog.save(this, e); //throw;
+                throw;// ELog.save(this, e); //throw;
             }
                         
             return rm;

@@ -151,6 +151,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PeriodoController.cs" />
+    <Compile Include="Controllers\PolizaController.cs" />
     <Compile Include="Filters\AdminFilters.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,6 +181,7 @@
     <Content Include="Views\Periodo\Crud.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Error\ErrorPage.cshtml" />
+    <Content Include="Views\Poliza\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -209,7 +211,7 @@
       <Name>PlantillaObjetos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repositorio\Repositorio.csproj">
-      <Project>{196ee0c3-95bc-4849-a029-a13ada70e7a4}</Project>
+      <Project>{4e3c70dd-d0d0-4447-8fe8-13c7a1e78281}</Project>
       <Name>Repositorio</Name>
     </ProjectReference>
     <ProjectReference Include="..\Seguridad\Seguridad.csproj">

@@ -27,6 +27,6 @@ namespace Repositorio
         [StringLength(32)]
         public string Password { get; set; }
 
-        public int IdEstado { get; set; }
+        public int? IdEstado { get; set; }
     }
 }
