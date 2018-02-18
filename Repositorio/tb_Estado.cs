@@ -15,6 +15,8 @@ namespace Repositorio
             tb_Foto = new HashSet<tb_Foto>();
             tb_Periodo = new HashSet<tb_Periodo>();
             tb_Persona = new HashSet<tb_Persona>();
+            tb_Poliza = new HashSet<tb_Poliza>();
+            tb_PolizaDetalle = new HashSet<tb_PolizaDetalle>();
             tb_Reserva = new HashSet<tb_Reserva>();
         }
 
@@ -36,6 +38,12 @@ namespace Repositorio
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_Persona> tb_Persona { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_Poliza> tb_Poliza { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_PolizaDetalle> tb_PolizaDetalle { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_Reserva> tb_Reserva { get; set; }

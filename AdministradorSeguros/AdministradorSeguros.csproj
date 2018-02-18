@@ -84,6 +84,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SpreadsheetGear2017.Core, Version=8.0.64.102, Culture=neutral, PublicKeyToken=39c186f5904944ec, processorArchitecture=MSIL" />
+    <Reference Include="SpreadsheetGear2017.Drawing, Version=8.0.64.102, Culture=neutral, PublicKeyToken=39c186f5904944ec, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -138,6 +140,7 @@
     <Content Include="assets\js\jquery-3.3.1.min.js" />
     <Content Include="assets\js\jquery.anexgrid.min.js" />
     <Content Include="assets\js\jquery.form.js" />
+    <Content Include="assets\js\moment.js" />
     <Content Include="Global.asax" />
     <Content Include="assets\js\jquery.validate.min.js" />
     <Content Include="assets\js\jquery.validate.unobtrusive.min.js" />
@@ -149,10 +152,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PeriodoController.cs" />
+    <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\PolizaController.cs" />
+    <Compile Include="Controllers\SexoController.cs" />
     <Compile Include="Filters\AdminFilters.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,6 +189,9 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Error\ErrorPage.cshtml" />
     <Content Include="Views\Poliza\Index.cshtml" />
+    <Content Include="Views\Poliza\Ver.cshtml" />
+    <Content Include="Views\Poliza\Importar.cshtml" />
+    <Content Include="assets\js\botonFile.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -193,6 +202,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="log\" />
+    <Folder Include="Uploads\" />
+    <Folder Include="Views\Estado\" />
+    <Folder Include="Views\Persona\" />
+    <Folder Include="Views\Sexo\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Helper\Helper.csproj">

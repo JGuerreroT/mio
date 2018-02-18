@@ -190,3 +190,7 @@ D:\ProyectoTesis2\Sistema\AdministradorSeguros\AdministradorSeguros\bin\Segurida
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\AdministradorSeguros\bin\ManejadorErrores.pdb
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\AdministradorSeguros\bin\PlantillaObjetos.pdb
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\AdministradorSeguros\bin\Seguridad.pdb
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\AdministradorSeguros\bin\SpreadsheetGear2017.Core.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\AdministradorSeguros\bin\SpreadsheetGear2017.Drawing.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\AdministradorSeguros\bin\SpreadsheetGear2017.Core.xml
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\AdministradorSeguros\bin\SpreadsheetGear2017.Drawing.xml

@@ -19,7 +19,7 @@ namespace Repositorio
 
         [Required]
         [StringLength(50)]
-        public string DescripcionPersona { get; set; }
+        public string DescripcionTipoPersona { get; set; }
 
         [Required]
         [StringLength(10)]

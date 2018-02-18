@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeguroContext.cs" />
+    <Compile Include="tb_Adjunto.cs" />
     <Compile Include="tb_CiaSeguro.cs" />
     <Compile Include="tb_Cobertura.cs" />
     <Compile Include="tb_Cotizacion.cs" />

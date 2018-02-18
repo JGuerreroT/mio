@@ -1,10 +1,69 @@
 ﻿@{
-    ViewBag.Title = "Poliza";
+    ViewBag.Title = "Polizas";
 }
 <h1 class="page-header">
-    <a href="~/poliza/crud" class="btn btn-default pull-right">Nueva Poliza</a>
-    Pólizas
+    <a href="~/Poliza/crud" class="btn btn-default pull-right">Nueva Póliza</a>
+    Listado de Pólizas
 </h1>
 
 <div id="list"></div>
 
+<script>
+    $(document).ready(function () {
+        $("#list").anexGrid({
+            class: 'table-striped table-bordered table-condensed',
+            columnas: [
+                { leyenda: 'Póliza', columna: 'NumeroPoliza', style: 'width:100px;', ordenable: true, filtro: true },
+                { leyenda: 'Nombre', columna: 'Nombre', style: 'width:200px;', ordenable: true, filtro: true },
+                { leyenda: 'Apellido', columna: 'Apellido', style: 'width:200px;', ordenable: true, filtro: true },
+                { leyenda: 'CUSPP', columna: 'CUSSPP', style: 'width:150px;', ordenable: false, filtro: true },
+                { leyenda: 'Ramo', columna: 'DescripcionCobertura', style: 'width:150px;', ordenable: false, filtro: false },
+                { leyenda: 'Moneda', columna: 'DescripcionMoneda', style: 'width:100px;', ordenable: false, filtro: false },
+                { leyenda: 'Notificación', columna: 'FechaNotificacion', style: 'width:100px;', ordenable: false, filtro: false },
+                { leyenda: 'Estado', columna: 'DescripcionEstado', style: 'width:100px;', ordenable: false, filtro: false },
+                { style: 'width:100px;' },
+                { style: 'width:100px;' },
+            ],
+
+            modelo: [
+                    { propiedad: 'NumeroPoliza' },
+                    { propiedad: 'Nombre' },
+                    { propiedad: 'Apellido' },
+                    { propiedad: 'CUSSPP' },
+                    { propiedad: 'DescripcionCobertura' },
+                    { propiedad: 'DescripcionMoneda' },
+
+                    { propiedad: 'FechaNotificacion', class: 'text-right', formato: function (tr, obj, valor) { return moment(valor).format("DD/MM/YYYY"); } },
+
+                    { propiedad: 'DescripcionEstado' },
+
+                // BOTONES
+                {
+                    formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/poliza/ver/")' + obj.IdPoliza,
+                            contenido: 'Visualizar',
+                            class: 'btn .btn-info btn-xs'
+                        });
+                    }
+                },
+                {
+                    formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/poliza/crud/")' + obj.IdPoliza,
+                            contenido: 'Editar',
+                            class: 'btn btn-primary btn-xs'
+                        });
+                    },
+                }
+            ],
+
+            url: '@Url.Content("~/poliza/CargarPolizas")',
+            paginable: true,
+            filtrable: true,
+            limite: [20, 60, 100],
+            columna: 'IdPoliza',
+            columna_orden: 'DESC'
+        });
+    })
+</script>

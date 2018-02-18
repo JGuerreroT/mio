@@ -25,6 +25,10 @@ namespace Repositorio
 
         public int IdTipoPersona { get; set; }
 
+        public int IdEstado { get; set; }
+
+        public virtual tb_Estado tb_Estado { get; set; }
+
         public virtual tb_Persona tb_Persona { get; set; }
 
         public virtual tb_Poliza tb_Poliza { get; set; }

@@ -21,6 +21,9 @@ namespace Repositorio
         [StringLength(50)]
         public string DescripcionModalidad { get; set; }
 
+        [StringLength(10)]
+        public string ResumenModalidad { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_Poliza> tb_Poliza { get; set; }
     }

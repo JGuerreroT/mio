@@ -15,7 +15,7 @@ namespace Repositorio
         }
 
         [Key]
-        public int idSexo { get; set; }
+        public int IdSexo { get; set; }
 
         [Required]
         [StringLength(10)]

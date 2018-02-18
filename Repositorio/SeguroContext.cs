@@ -12,6 +12,7 @@ namespace Repositorio
         {
         }
 
+        public virtual DbSet<tb_Adjunto> tb_Adjunto { get; set; }
         public virtual DbSet<tb_CiaSeguro> tb_CiaSeguro { get; set; }
         public virtual DbSet<tb_Cobertura> tb_Cobertura { get; set; }
         public virtual DbSet<tb_Cotizacion> tb_Cotizacion { get; set; }
@@ -44,6 +45,10 @@ namespace Repositorio
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<tb_Adjunto>()
+                .Property(e => e.Ruta)
+                .IsUnicode(false);
+
             modelBuilder.Entity<tb_CiaSeguro>()
                 .Property(e => e.DescripcionCiaSeguro)
                 .IsUnicode(false);
@@ -121,6 +126,16 @@ namespace Repositorio
 
             modelBuilder.Entity<tb_Estado>()
                 .HasMany(e => e.tb_Persona)
+                .WithRequired(e => e.tb_Estado)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tb_Estado>()
+                .HasMany(e => e.tb_Poliza)
+                .WithRequired(e => e.tb_Estado)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tb_Estado>()
+                .HasMany(e => e.tb_PolizaDetalle)
                 .WithRequired(e => e.tb_Estado)
                 .WillCascadeOnDelete(false);
 
@@ -240,6 +255,10 @@ namespace Repositorio
             modelBuilder.Entity<tb_Modalidad>()
                 .Property(e => e.DescripcionModalidad)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<tb_Modalidad>()
+                .Property(e => e.ResumenModalidad)
+                .IsFixedLength();
 
             modelBuilder.Entity<tb_Modalidad>()
                 .HasMany(e => e.tb_Poliza)
@@ -562,7 +581,7 @@ namespace Repositorio
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tb_TipoPersona>()
-                .Property(e => e.DescripcionPersona)
+                .Property(e => e.DescripcionTipoPersona)
                 .IsUnicode(false);
 
             modelBuilder.Entity<tb_TipoPersona>()

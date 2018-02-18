@@ -8,54 +8,18 @@ using Helper;
 using PlantillaObjetos;
 using ManejadorErrores;
 using System.Data.Entity;
+using PlantillaObjetos;
+using Model.Dominio;
 
 namespace Model
 {
     public class PolizaBL
     {
-        public void Guardar()
+        public ResponseModel Guardar(tb_Poliza poliza)
         {
-            //var rm = new ResponseModel();
-            tb_Poliza poliza = new tb_Poliza();
-            tb_PolizaDetalle polizaDetalle = new tb_PolizaDetalle();
-
+            var rm = new ResponseModel();
             try
             {
-                poliza.NumeroPoliza=1;
-                poliza.FechaDevengue=DateTime.Now;
-                poliza.FechaVigencia= DateTime.Now; 
-                poliza.FechaEnvio= DateTime.Now;
-                poliza.FechaNotificacion= DateTime.Now;
-                poliza.IdMoneda=1;
-                poliza.IdCobertura=1;
-                poliza.IdModalidad=1;
-                poliza.PeriodoDiferido=0;
-                poliza.PeriodoGarantizado=0;
-                poliza.Gratificacion=false;
-                poliza.DerechoACrecer=false;
-                poliza.Calce=false;
-                poliza.Repacto=false;
-                poliza.Prima=0;
-                poliza.CICInical=0;
-                poliza.CICFInal=0;
-                poliza.TasaVenta=0;
-                poliza.TasaReserva=0;
-                poliza.RentaTemporal=false;
-                poliza.PorcentajeRentaTemporal=0;
-                poliza.PeriodoInicialRentaTemporal=0;
-                poliza.IdCotizacion=1;
-                poliza.IdPeriodo=13;
-                poliza.Estudiante=false;
-                poliza.PorcentajeGarantizado=0;
-
-                polizaDetalle.IdPersona = 1;
-                polizaDetalle.IdRelacionFamiliar = 1;
-                polizaDetalle.IdSalud = 1;
-                polizaDetalle.PorcentajeBeneficio = 0;
-                polizaDetalle.IdTipoPensionista = 1;
-                polizaDetalle.IdTipoPersona = 1;
-
-                poliza.tb_PolizaDetalle.Add(polizaDetalle);
 
                 using (var ctx = new SeguroContext())
                 {
@@ -67,7 +31,7 @@ namespace Model
                     {
                         ctx.Entry(poliza).State = EntityState.Added;
                     }
-                    //rm.SetResponse(true);
+                    rm.SetResponse(true);
                     ctx.SaveChanges();
 
                 }
@@ -79,7 +43,169 @@ namespace Model
 
             }
 
-            //return rm;
+            return rm;
+        }
+
+        public AnexGRIDResponde ListarPolizas(AnexGRID grid)
+        {
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    //inicializa la grilla
+                    grid.Inicializar();
+
+                    var query = ctx.tb_PolizaDetalle
+                                .Include(x => x.tb_Poliza.tb_Estado)
+                                .Include(x => x.tb_Poliza.tb_Cobertura )
+                                .Include(x => x.tb_Poliza.tb_Moneda )
+                                .Include(x => x.tb_Persona )
+                                .Where(x => x.IdDetallePoliza > 0 && x.IdRelacionFamiliar == 1);
+                    
+                    // Ordenamiento
+                    if (grid.columna == "IdPoliza")
+                    {
+                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.IdPoliza)
+                                                             : query.OrderBy(x => x.IdPoliza);
+                    }
+
+                    if (grid.columna == "NumeroPoliza")
+                    {
+                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.tb_Poliza.NumeroPoliza )
+                                                             : query.OrderBy(x => x.tb_Poliza.NumeroPoliza);
+                    }
+
+                    if (grid.columna == "NombrePersona")
+                    {
+                        query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.tb_Persona.Nombre + ' ' + x.tb_Persona.Apellido)
+                                                             : query.OrderBy(x => x.tb_Persona.Nombre + ' ' + x.tb_Persona.Apellido);
+                    }
+
+                    // Filtros
+                    foreach (var f in grid.filtros)
+                    {
+                        if (f.columna == "NumeroPoliza")
+                            query = query.Where(x => x.tb_Poliza.NumeroPoliza.ToString().StartsWith(f.valor));
+
+                        if (f.columna == "Nombre")
+                            query = query.Where(x => x.tb_Persona.Nombre.Contains(f.valor));
+                        //query = query.Where(x => (x.tb_Persona.Nombre + ' ' + x.tb_Persona.Apellido).Contains(f.valor));
+
+                        if (f.columna == "Apellido")
+                            query = query.Where(x => x.tb_Persona.Apellido.Contains(f.valor));
+                        
+                        if (f.columna == "DescripcionEstado")
+                            query = query.Where(x => x.tb_Poliza.tb_Estado.DescripcionEstado.StartsWith(f.valor));
+                    }
+
+                    //Skip(grid.pagina)-->se indica desde que página se inicia la paginacion
+                    //Take(grid.limite)-->se indica la cantidad de registros a mostrar
+                    var polizas = query.Skip(grid.pagina)
+                                       .Take(grid.limite)
+                                       .ToList();
+
+                    //Se obtiene la cantidad de registros que hay en la tabla, se usa en la paginacion
+                    var total = query.Count();
+
+                    //
+                    grid.SetData(
+                        from p in polizas
+                        select new
+                        {
+                            p.IdPoliza,
+                            p.tb_Poliza.NumeroPoliza,
+                            p.tb_Persona.Nombre,
+                            p.tb_Persona.Apellido,                            
+                            p.tb_Persona.CUSSPP ,
+                            p.tb_Poliza.tb_Cobertura.DescripcionCobertura,
+                            p.tb_Poliza.tb_Moneda.DescripcionMoneda,
+                            p.tb_Poliza.FechaNotificacion,
+                            p.tb_Poliza.tb_Estado.DescripcionEstado
+                        },
+                        total
+                    );
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;
+            }
+
+            return grid.responde();
+        }
+
+        public tb_Poliza ObtenerPoliza(int idPoliza)
+        {
+            var poliza = new tb_Poliza();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    poliza = ctx.tb_Poliza
+                        .Include(x => x.tb_Estado)
+                        .Include(x => x.tb_Moneda)
+                        .Include(x => x.tb_Cobertura)
+                        .Include(x => x.tb_Modalidad)
+                        .Include(x => x.tb_Periodo)
+                        .Include(x => x.tb_PolizaDetalle.Select(y => y.tb_Persona))
+                        .Include(x => x.tb_PolizaDetalle.Select(y => y.tb_Persona).Select(z => z.tb_Sexo))
+                        .Include(x => x.tb_PolizaDetalle.Select(y => y.tb_RelacionFamiliar))
+                        .Include(x => x.tb_PolizaDetalle.Select(y => y.tb_Salud))
+                        .Include(x => x.tb_PolizaDetalle.Select(y => y.tb_Estado))
+                        .Include(x => x.tb_PolizaDetalle.Select(y => y.tb_TipoPersona))
+                        .Where(x => x.IdPoliza == idPoliza)    
+                        .Take(100)                    
+                        .SingleOrDefault();
+                                        
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;
+            }
+
+            return poliza;
+        }
+
+        public ResponseModel Guardar(List<tb_Poliza> polizas)
+        {
+            var rm = new ResponseModel();
+            PersonaBL persona = new PersonaBL();
+
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    foreach (tb_Poliza  poliza in polizas)
+                    {
+                        if (poliza.IdPoliza > 0)
+                        {
+                            ctx.Entry(poliza).State = EntityState.Modified;
+                        }
+                        else
+                        {
+                            //foreach (tb_PolizaDetalle  polDet in poliza.tb_PolizaDetalle )
+                            //{
+                            //    polDet.IdPersona= persona.GuardarPersona(polDet.tb_Persona);
+                            //}
+
+                            ctx.Entry(poliza).State = EntityState.Added;
+                        }
+                        rm.SetResponse(true);
+                        ctx.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); 
+
+            }
+
+            return rm;
         }
 
     }

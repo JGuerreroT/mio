@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
@@ -53,5 +52,30 @@ namespace Model
 
             return estado;
         }
+
+        public int ObtenerEstado(string descripcionEstado)
+        {
+            var estado = new tb_Estado();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    estado = ctx.tb_Estado
+                        .Where(x => x.DescripcionEstado.StartsWith(descripcionEstado ))
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;
+            }
+
+            return estado.IdEstado ;
+        }
+
+
+
+
     }
 }

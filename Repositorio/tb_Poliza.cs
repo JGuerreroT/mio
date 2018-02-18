@@ -80,9 +80,13 @@ namespace Repositorio
 
         public decimal PensionReserva { get; set; }
 
+        public int IdEstado { get; set; }
+
         public virtual tb_Cobertura tb_Cobertura { get; set; }
 
         public virtual tb_Cotizacion tb_Cotizacion { get; set; }
+
+        public virtual tb_Estado tb_Estado { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_FotoDetalle> tb_FotoDetalle { get; set; }

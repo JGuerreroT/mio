@@ -179,6 +179,27 @@ namespace Model
             return rm;
         }
 
-        
+        public int ObtenerPeriodo(string anio, string mes)
+        {
+            var periodo = new tb_Periodo();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    periodo = ctx.tb_Periodo
+                        .Where(x => x.Anio.StartsWith(anio))
+                        .Where(x => x.Mes.StartsWith(mes))
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;
+            }
+
+            return periodo.IdPeriodo ;
+        }
+
     }
 }

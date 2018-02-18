@@ -1,0 +1,136 @@
+﻿@model Repositorio.tb_Poliza
+@{
+    ViewBag.Title = Model.NumeroPoliza ;
+
+//    List<Repositorio.tb_PolizaDetalle> polizaDetalle = ViewBag.Adjuntos;
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/poliza">Pólizas</a></li>
+    <li class="active">@Model.NumeroPoliza </li>
+</ol>
+
+<div class="panel panel-default panel-primary">
+    <div class="panel-heading">Información del Caso</div>
+
+    <div class="panel-body">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <dl class="dl-horizontal">
+                    <dt>Número de Póliza</dt><dd>@Model.NumeroPoliza </dd>
+                    <dt>Ramo</dt><dd>@Model.tb_Cobertura.DescripcionCobertura </dd>
+                    <dt>Modalidad</dt><dd>@Model.tb_Modalidad.DescripcionModalidad </dd>
+                    <dt>Periodo</dt><dd>@(Model.tb_Periodo.Anio + Model.tb_Periodo.Mes )</dd>
+                </dl>
+            </div>
+
+            <div class="col-sm-4"></div>
+
+            <div class="col-sm-4">
+                <dl class="dl-horizontal" col-sm-6>
+                    <dt>Estado</dt><dd>@Model.tb_Estado.DescripcionEstado  </dd>
+                    <dt>Fecha Notificación</dt><dd>@Model.FechaNotificacion.ToShortDateString() </dd>
+                    <dt>Fecha Emisión</dt><dd>@Model.FechaVigencia.ToShortDateString()  </dd>
+                    <dt>Fecha Devengue</dt><dd>@Model.FechaDevengue.ToShortDateString()</dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel-heading">Datos de la Renta Vitalicia</div>
+    <div class="panel-body">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <dl class="dl-horizontal">
+                    <dt>Prima</dt><dd>@Model.NumeroPoliza </dd>
+                    <dt>Periodo Diferido</dt><dd>@Model.PensionDevengue.ToString() </dd>
+                    <dt>Periodo Garantizado</dt><dd>@Model.PeriodoGarantizado.ToString() </dd>
+                    <dt>% Garantizado</dt><dd>@Model.PorcentajeGarantizado.ToString()</dd>
+                    <dt>Gratificación</dt><dd>@(Model.Gratificacion == true ? "Si" : "No")</dd>
+                    <dt>Derecho a Crecer</dt><dd>@(Model.DerechoACrecer == true ? "Si" : "No")</dd>
+                    <dt>Calce</dt><dd>@(Model.Calce == true ? "Si" : "No")</dd>
+                    <dt>Repacto</dt><dd>@(Model.Repacto == true ? "Si" : "No")</dd>
+                </dl>
+            </div>
+
+            <div class="col-sm-4"></div>
+
+            <div class="col-sm-4">
+                <dl class="dl-horizontal">
+                    <dt>Moneda</dt><dd>@Model.tb_Moneda.DescripcionMoneda </dd>
+                    <dt>% Ramo</dt><dd>@Model.tb_Cobertura.PorcentajeCobertura.ToString()  </dd>
+                    <dt>CIC Inicial</dt><dd>@Model.CICInical.ToString()  </dd>
+                    <dt>CIC Final</dt><dd>@Model.CICInical.ToString() </dd>
+                    <dt>Tasa Venta</dt><dd>@Model.TasaVenta.ToString()  </dd>
+                    <dt>Tasa Reserva</dt><dd>@Model.TasaReserva.ToString() </dd>
+                    <dt>Pensión Inicial</dt><dd>@Model.PensionIncial.ToString() </dd>
+                    <dt>Pensión Devengue</dt><dd>@Model.PensionDevengue.ToString() </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <dl class="dl-horizontal">
+                    <dt>Renta Temporal</dt><dd>@(Model.RentaTemporal == true ? "Si" : "No") </dd>
+                </dl>
+            </div>
+            <div class="col-sm-4">
+                <dl class="dl-horizontal">
+                    <dt>% Renta Temporal</dt><dd>@Model.PorcentajeRentaTemporal.ToString()</dd>
+                </dl>
+            </div>
+            <div class="col-sm-4">
+                <dl class="dl-horizontal">
+                    <dt>Periodo Inicial</dt><dd>@Model.PeriodoInicialRentaTemporal.ToString()</dd>
+                </dl>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="panel-heading">Beneficiarios</div>
+    <div class="panel-body">
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Parentesco</th>
+                        <th>Sexo</th>
+                        <th>Nacimiento</th>
+                        <th>Salud</th>
+                        <th>% Pensión</th>
+                        <th>Estado</th>
+                        <th>Tipo Beneficiario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var c in Model.tb_PolizaDetalle)
+                    {
+                        <tr>
+                            <td>@(c.tb_Persona.Nombre + ' ' + c.tb_Persona.Apellido)</td>
+                            <td>@c.tb_RelacionFamiliar.DescripcionRelacionFamiliar </td>
+                            <td>@c.tb_Persona.tb_Sexo.DescripcionSexo </td>
+                            <td>@c.tb_Persona.FechaNacimiento.ToShortDateString()</td>
+                            <td>@c.tb_Salud.DescripcionSalud </td>
+                            <td>@c.PorcentajeBeneficio.ToString()</td>
+                            <td>@c.tb_Estado.DescripcionEstado </td>
+                            <td>@c.tb_TipoPersona.DescripcionPersona </td>
+                        </tr>
+                    }
+
+                </tbody>
+                
+            </table>
+        </div>
+
+    </div>
+
+</div>
