@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Fotos";
+}
+<h1 class="page-header">
+    Listado de Fotos de pólizas activas
+</h1>
+
+<div id="list"></div>
+
+<!--codigo para mostrar la grilla-->
+<script>
+
+    $(document).ready(function () {
+        $("#list").anexGrid({
+            class: 'table-striped table-bordered table-condensed',
+            columnas: [
+                { leyenda: 'Periodo', columna: 'Periodo', style: 'width:150px;', ordenable: false, filtro: false },
+                { leyenda: 'Fecha', columna: 'Fecha', style: 'width:150px;', ordenable: false, filtro: false },
+                { leyenda: 'Moneda', columna: 'Moneda', style: 'width:150px;', ordenable: false, filtro: false },
+                { leyenda: 'Estado', columna: 'Estado', style: 'width:150px;', ordenable: false, filtro: false },
+            ],
+            modelo: [
+                    { propiedad: 'Periodo' },
+                    { propiedad: 'Fecha', class: 'text-right', formato: function (tr, obj, valor) { return moment(valor).format("DD/MM/YYYY"); } },
+                    { propiedad: 'Moneda' },
+                    { propiedad: 'Estado' },
+
+             ],
+
+            url: '@Url.Content("~/importar/CargarFoto")',
+            paginable: true,
+            filtrable: true,
+            limite: [20, 60, 100],
+            columna: 'Periodo',
+            columna_orden: 'DESC'
+        });
+    })
+</script>

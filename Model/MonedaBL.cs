@@ -28,7 +28,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return moneda.idMoneda;
@@ -47,7 +47,7 @@ namespace Model
             }
             catch (Exception e)
             {
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return monedas;
@@ -68,7 +68,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return moneda;

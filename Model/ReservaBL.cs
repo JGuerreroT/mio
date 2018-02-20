@@ -40,7 +40,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return rm;
@@ -98,12 +98,29 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return grid.responde();
         }
 
+        public tb_Reserva BuscarReserva(int periodo, int moneda)
+        {
+            var caso = new tb_Reserva();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    caso = ctx.Database.SqlQuery<tb_Reserva>("sp_BuscarReserva @p0, @p1", periodo, moneda ).SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+                ELog.save(this, e); //throw;
+            }
+
+            return caso;
+        }
 
     }
 }

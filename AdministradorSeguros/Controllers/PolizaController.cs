@@ -96,11 +96,12 @@ namespace AdministradorSeguros.Controllers
             tb_PolizaDetalle polizaDetalle;
             List<tb_Poliza> polizas = new List<tb_Poliza>();
 
-            if (ModelState.IsValid )
+            if (Ruta != null)
             {
-                if (Ruta != null)
+                if (ModelState.IsValid )
                 {
-                    if (Path.GetExtension(Ruta.FileName).ToString() == "xls" || Path.GetExtension(Ruta.FileName).ToString() == "xlsx")
+                    var agggg = Path.GetExtension(Ruta.FileName).ToString();
+                    if (Path.GetExtension(Ruta.FileName).ToString() != ".xls" && Path.GetExtension(Ruta.FileName).ToString() != ".xlsx")
                     {
                         rm.SetResponse(false, "Debe escoger un archivo Excel (xls/xlsx)");
                     }
@@ -201,15 +202,17 @@ namespace AdministradorSeguros.Controllers
 
                         if (rm.response)
                         {
-                            rm.function = "MensajeGrabacion()";
-                            rm.href = Url.Content("~/poliza/importar");
+                            //rm.function = "MensajeGrabacion()";
+                            //rm.href = Url.Content("~/poliza/importar");
+                            rm.SetResponse(false, "Importación de pólizas terminó satisfactoriamente!");
                         }
                     }
                 }
             }
-
-            rm.SetResponse(false, "Debe escoger un archivo");
-
+            else
+            {
+                rm.SetResponse(false, "Debe escoger un archivo");
+            }
             return Json(rm);
         }
 

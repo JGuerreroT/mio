@@ -28,7 +28,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return modalidad.IdModalidad;
@@ -47,7 +47,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;//
+                ELog.save(this, e); //throw;//
             }
 
             return lista;

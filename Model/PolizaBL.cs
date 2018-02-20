@@ -39,7 +39,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); 
+                ELog.save(this, e); //throw;
 
             }
 
@@ -129,7 +129,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return grid.responde();
@@ -163,7 +163,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return poliza;
@@ -201,7 +201,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); 
+                ELog.save(this, e); //throw;
 
             }
 

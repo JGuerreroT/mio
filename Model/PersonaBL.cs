@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Repositorio;
 using Helper;
 using System.Data.Entity;
+using ManejadorErrores;
 
 namespace Model
 {
@@ -38,7 +39,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return rm;
@@ -68,7 +69,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return codigo;

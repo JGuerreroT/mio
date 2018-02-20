@@ -28,7 +28,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return coberturaP.IdCobertura;
@@ -49,7 +49,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return cobertura;
@@ -68,7 +68,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;//
+                ELog.save(this, e); //throw;//
             }
 
             return lista;

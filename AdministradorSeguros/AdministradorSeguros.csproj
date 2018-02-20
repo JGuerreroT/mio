@@ -163,6 +163,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImportarController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PeriodoController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
@@ -207,6 +208,8 @@
     <None Include="Properties\PublishProfiles\a.pubxml" />
     <Content Include="Views\Reserva\Importar.cshtml" />
     <Content Include="Views\Poliza\Crud.cshtml" />
+    <Content Include="Views\Importar\Index.cshtml" />
+    <Content Include="Views\Importar\Importar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -219,6 +222,7 @@
     <Folder Include="log\" />
     <Folder Include="Uploads\" />
     <Folder Include="Views\Estado\" />
+    <Folder Include="Views\Foto\" />
     <Folder Include="Views\Persona\" />
     <Folder Include="Views\Sexo\" />
   </ItemGroup>

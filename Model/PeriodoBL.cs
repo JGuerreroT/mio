@@ -15,23 +15,30 @@ namespace Model
     public class PeriodoBL
     {
 
-        public List<tb_Periodo> ListarPeriodo()
+        public List<tb_Periodo> ListarPeriodo(int i=0)
         {
             var periodos = new List<tb_Periodo>();
             try
             {
                 using (var ctx=new SeguroContext())
                 {
-                    //obtiene la relacion entre periodo y estado
-                    periodos = ctx.tb_Periodo
-                        .Include(x => x.tb_Estado)
-                        .ToList();
+                    if (i==0)
+                    {
+                        //obtiene la relacion entre periodo y estado
+                        periodos = ctx.tb_Periodo
+                            .Include(x => x.tb_Estado)
+                            .ToList();
+                    }
+                    else
+                    {
+                        periodos = ctx.Database.SqlQuery<tb_Periodo>("sp_listaPeriodos").ToList();
+                    }
                 }
             }
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return periodos;
@@ -114,7 +121,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return grid.responde();
@@ -143,7 +150,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return periodo;
@@ -173,7 +180,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return rm;
@@ -195,7 +202,7 @@ namespace Model
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return periodo.IdPeriodo ;

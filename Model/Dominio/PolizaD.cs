@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Repositorio;
 using System.Data.Entity;
+using ManejadorErrores;
 
 namespace Model.Dominio
 {
@@ -34,7 +35,7 @@ namespace Model.Dominio
             catch (Exception e)
             {
 
-                throw;//ELog.save(this, e); //throw;
+                ELog.save(this, e); //throw;
             }
 
             return polizas;

@@ -1,0 +1,2 @@
+                            @Html.TextBoxFor(x => x.FechaNotificacion, new { @class = "form-control datefield" })
+                            @Html.ValidationMessageFor(x => x.FechaNotificacion, null, new { @class = "label label-danger" })

@@ -55,6 +55,7 @@
     <Compile Include="EstadoBL.cs" />
     <Compile Include="FotoBL.cs" />
     <Compile Include="IpcBL.cs" />
+    <Compile Include="ListaFoto.cs" />
     <Compile Include="ListaReseva.cs" />
     <Compile Include="ModalidadBL.cs" />
     <Compile Include="MonedaBL.cs" />
