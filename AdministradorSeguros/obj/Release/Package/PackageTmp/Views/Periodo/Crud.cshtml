@@ -1,0 +1,70 @@
+﻿@model Repositorio.tb_Periodo
+@{
+    ViewBag.Title = (Model.IdPeriodo > 0 ? Model.Anio + "" + Model.Mes : "Nuevo Regristro");
+    List<Repositorio.tb_Estado> estados = ViewBag.Estados;
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/periodo">Periodos</a></li>
+    <li class="active">@(Model.IdPeriodo > 0 ? Model.Anio + "" + Model.Mes : "Nuevo Regristro")</li>
+</ol>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#informacion" aria-controls="informacion" role="tab" data-toggle="tab">Información</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="informacion">
+        @using (Html.BeginForm("Guardar", "Home", FormMethod.Post, new { id = "frm-periodo" }))
+        {
+            @Html.HiddenFor(x => x.IdPeriodo)
+            <div class="panel panel-default">
+                <!--<div class="panel-heading">Información Periodo</div>-->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Año</label>
+                        <select class="form-control" name="Anio">
+                            @for (int i = 2000; i < 2100; i++)
+                            {
+                                <option @(Model.Anio == i.ToString() ? "selected" : "") value="@i.ToString()">@i.ToString()</option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(x => x.Anio, null, new { @class="label label-danger"})
+                    </div>
+                    <div class="form-group">
+                        <label>Mes</label>
+                        <select class="form-control" name="Mes">
+                            @for (int i = 1; i < 13; i++)
+                            {
+                                <option @(Model.Mes == i.ToString("00") ? "selected" : "") value="@i.ToString("00")">@i.ToString("00")</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <select class="form-control" name="IdEstado">
+                            @foreach (var e in estados)
+                            {
+                                <option @(Model.IdEstado == e.IdEstado ? "selected" : "") value="@e.IdEstado">@e.DescripcionEstado</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-right">
+                <button data-ajax="true" data-confirm="¿Está seguro de guardar este registro?" type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+
+    function MensajeGrabacion() {
+        alert("El periodo se registró de forma exitosa");
+    }
+
+</script>

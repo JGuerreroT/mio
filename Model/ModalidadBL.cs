@@ -34,5 +34,25 @@ namespace Model
             return modalidad.IdModalidad;
         }
 
+        public List<tb_Modalidad > ListarModalidad()
+        {
+            var lista = new List<tb_Modalidad>();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    lista = ctx.tb_Modalidad.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;//
+            }
+
+            return lista;
+        }
+
+
     }
 }

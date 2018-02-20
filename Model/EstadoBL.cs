@@ -61,7 +61,7 @@ namespace Model
                 using (var ctx = new SeguroContext())
                 {
                     estado = ctx.tb_Estado
-                        .Where(x => x.DescripcionEstado.StartsWith(descripcionEstado ))
+                        .Where(x => x.DescripcionEstado.Trim().StartsWith(descripcionEstado ))
                                     .SingleOrDefault();
                 }
             }

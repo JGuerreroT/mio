@@ -11,6 +11,7 @@ using Helper;
 using System.IO;
 using SpreadsheetGear;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace AdministradorSeguros.Controllers
 {
@@ -18,6 +19,7 @@ namespace AdministradorSeguros.Controllers
     public class PolizaController : Controller
     {
         // GET: Poliza
+        #region variables
         private PolizaBL poliza = new PolizaBL();
         private EstadoBL estado = new EstadoBL();
         private SexoBL sexo = new SexoBL();
@@ -37,16 +39,34 @@ namespace AdministradorSeguros.Controllers
         
         // private readonly Log _oLog = new Log();
         private readonly System.Globalization.CultureInfo _myCIintl = new System.Globalization.CultureInfo("es-PE", false);
-                
+        #endregion
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Crud()
+        public ActionResult Crud(int id = 0)
         {
-            
-            return Redirect("~/poliza");//View("~/poliza");
+            ViewBag.Ramos = cobertura.ListarCobertura();
+            ViewBag.Modalidades = modalidad.ListarModalidad();
+            ViewBag.Periodos = periodo.ListarPeriodo();
+            ViewBag.Monedas = moneda.ListarMoneda();
+
+            var pol = new tb_Poliza();
+
+            //pol.FechaDevengue= Convert.ToDateTime(DateTime.Now.ToShortDateString()) ;
+            //pol.FechaEnvio = DateTime.Now;
+            //pol.FechaNotificacion = DateTime.Now;
+            //pol.FechaVigencia = DateTime.Now;
+
+            pol.FechaEnvio = Convert.ToDateTime("01/01/1900");
+            pol.IdCotizacion = 1;
+
+            return View(
+                id == 0 ? pol
+                        : poliza.ObtenerPoliza(id)
+                );
         }
 
         public JsonResult CargarPolizas(AnexGRID grid)
@@ -153,7 +173,31 @@ namespace AdministradorSeguros.Controllers
                             //rm = poliza.Guardar(polizaEF);
                         }
 
+                        path = Path.Combine(Server.MapPath("~/uploads/"), "importar0.txt");
+
+                        StreamWriter sw = new StreamWriter(path, true);
+
+                        StackTrace stacktrace = new StackTrace();
+                        sw.WriteLine("las polizas se importaron");
+                        sw.WriteLine("hora:  " + System.DateTime.Now.ToString("HH:mm:ss"));
+                        sw.WriteLine("");
+
+                        sw.Flush();
+                        sw.Close();
+
                         rm = poliza.Guardar(polizas );
+
+                        path = Path.Combine(Server.MapPath("~/uploads/"), "importar.txt");
+
+                        sw = new StreamWriter(path, true);
+
+                        stacktrace = new StackTrace();
+                        sw.WriteLine("las polizas se importaron");
+                        sw.WriteLine("hora:  "+ System.DateTime.Now.ToString("HH:mm:ss"));
+                        sw.WriteLine("");
+
+                        sw.Flush();
+                        sw.Close();
 
                         if (rm.response)
                         {
@@ -180,7 +224,12 @@ namespace AdministradorSeguros.Controllers
             polizaEF.FechaEnvio = DateTime.FromOADate(Double.Parse(rowPoliza[0, 17].Value.ToString()));
             polizaEF.FechaNotificacion = DateTime.FromOADate(Double.Parse(rowPoliza[0, 20].Value.ToString()));
             polizaEF.IdMoneda = moneda.ObtenerMoneda(rowPoliza[0, 3].Value.ToString());
-            polizaEF.IdCobertura = cobertura.ObtenerCobertura(rowPoliza[0, 2].Value.ToString());
+
+            //var d = rowPoliza[0, 2].Value.ToString();
+
+            polizaEF.IdCobertura = Convert.ToInt32(rowPoliza[0, 2].Value.ToString());
+//            polizaEF.IdCobertura = cobertura.ObtenerCobertura1(rowPoliza[0, 2].Value.ToString());
+
             polizaEF.IdModalidad = modalidad.ObtenerModalidad(rowPoliza[0, 22].Value.ToString());
             polizaEF.PeriodoDiferido = Convert.ToInt32(rowPoliza[0, 7].Value.ToString());
             polizaEF.PeriodoGarantizado = Convert.ToInt32(rowPoliza[0, 8].Value.ToString());
@@ -202,7 +251,7 @@ namespace AdministradorSeguros.Controllers
             polizaEF.PorcentajeGarantizado = Convert.ToDecimal(rowPoliza[0, 16].Value.ToString());
             polizaEF.PensionIncial = Convert.ToDecimal(rowPoliza[0, 10].Value.ToString());
             polizaEF.PensionDevengue = Convert.ToDecimal(rowPoliza[0, 10].Value.ToString());
-            polizaEF.PensionReserva = Convert.ToDecimal(rowPoliza[0, 8].Value.ToString());
+            polizaEF.PensionReserva = Convert.ToDecimal(rowPoliza[0, 10].Value.ToString());
             polizaEF.IdEstado = estado.ObtenerEstado(rowPoliza[0, 19].Value.ToString());
 
             return polizaEF;
@@ -237,5 +286,26 @@ namespace AdministradorSeguros.Controllers
             return polizaDetalle;
 
         }
+
+        public JsonResult Guardar(tb_Poliza model)
+        {
+            var rm = new ResponseModel();
+
+            if (ModelState.IsValid)
+            {
+                rm = poliza.Guardar(model);
+
+                if (rm.response)
+                {
+                    rm.function = "MensajeGrabacion()";
+                    rm.href = Url.Content("~/Poliza");
+                }
+
+            }
+            return Json(rm);
+        }
+
+
+
     }
 }

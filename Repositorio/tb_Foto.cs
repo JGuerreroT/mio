@@ -29,6 +29,8 @@ namespace Repositorio
 
         public virtual tb_Estado tb_Estado { get; set; }
 
+        public virtual tb_Moneda tb_Moneda { get; set; }
+
         public virtual tb_Periodo tb_Periodo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

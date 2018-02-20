@@ -34,5 +34,27 @@ namespace Model
             return sexo.IdSexo;
         }
 
+        public tb_Sexo ObtenerSexo(int idSexo)
+        {
+            var sexo = new tb_Sexo();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    sexo = ctx.tb_Sexo
+                        .Where(x => x.IdSexo == idSexo )
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;
+            }
+
+            return sexo;
+        }
+
+
     }
 }

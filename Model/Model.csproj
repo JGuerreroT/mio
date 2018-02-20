@@ -51,7 +51,11 @@
   <ItemGroup>
     <Compile Include="CoberturaBL.cs" />
     <Compile Include="Dominio\PolizaD.cs" />
+    <Compile Include="EntidadFiltro.cs" />
     <Compile Include="EstadoBL.cs" />
+    <Compile Include="FotoBL.cs" />
+    <Compile Include="IpcBL.cs" />
+    <Compile Include="ListaReseva.cs" />
     <Compile Include="ModalidadBL.cs" />
     <Compile Include="MonedaBL.cs" />
     <Compile Include="PeriodoBL.cs" />
@@ -59,8 +63,11 @@
     <Compile Include="PolizaBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RelacionFamiliarBL.cs" />
+    <Compile Include="ReservaBL.cs" />
     <Compile Include="SaludBL.cs" />
+    <Compile Include="SepelioBL.cs" />
     <Compile Include="SexoBL.cs" />
+    <Compile Include="TipoCambioBL.cs" />
     <Compile Include="TipoPensionistaBL.cs" />
     <Compile Include="TipoPersonaBL.cs" />
     <Compile Include="UsuarioBL.cs" />

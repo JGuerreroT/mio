@@ -2,4 +2,3 @@ D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\bin\Debug\Maneja
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\bin\Debug\ManejadorErrores.pdb
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\obj\Debug\ManejadorErrores.dll
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\obj\Debug\ManejadorErrores.pdb
-D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\obj\Debug\ManejadorErrores.csprojResolveAssemblyReference.cache

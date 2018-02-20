@@ -1,0 +1,9 @@
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Release\Repositorio.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Release\Repositorio.pdb
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Release\EntityFramework.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Release\EntityFramework.SqlServer.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Release\EntityFramework.xml
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Release\EntityFramework.SqlServer.xml
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\obj\Release\Repositorio.csprojResolveAssemblyReference.cache
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\obj\Release\Repositorio.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\obj\Release\Repositorio.pdb

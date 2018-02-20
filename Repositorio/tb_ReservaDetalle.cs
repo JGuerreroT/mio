@@ -9,12 +9,8 @@ namespace Repositorio
     public partial class tb_ReservaDetalle
     {
         [Key]
-        [Column(Order = 0)]
         public int IdReservaDetalle { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdReserva { get; set; }
 
         public int IdFotoDetallePoliza { get; set; }

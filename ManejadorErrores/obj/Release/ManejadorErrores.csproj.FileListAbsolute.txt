@@ -1,0 +1,5 @@
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\bin\Release\ManejadorErrores.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\bin\Release\ManejadorErrores.pdb
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\obj\Release\ManejadorErrores.csprojResolveAssemblyReference.cache
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\obj\Release\ManejadorErrores.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\ManejadorErrores\obj\Release\ManejadorErrores.pdb

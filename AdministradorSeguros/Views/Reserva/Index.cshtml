@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Reservas";
+}
+<h1 class="page-header">
+    Listado de Reservas
+</h1>
+
+<div id="list"></div>
+
+<!--codigo para mostrar la grilla-->
+<script>
+
+    $(document).ready(function () {
+        $("#list").anexGrid({
+            class: 'table-striped table-bordered table-condensed',
+            columnas: [
+                { leyenda: 'Periodo', columna: 'Periodo', style: 'width:100px;', ordenable: false, filtro: false },
+                { leyenda: 'Moneda', columna: 'Moneda', style: 'width:150px;', ordenable: false, filtro: false },
+                { leyenda: 'Fecha', columna: 'Fecha', style: 'width:100px;', ordenable: false, filtro: false },
+                { leyenda: 'Sepelio', columna: 'Sepelio', style: 'width:150px;', ordenable: false, filtro: false },
+                { leyenda: 'Garantizado', columna: 'Garantizado', style: 'width:150px;', ordenable: false, filtro: false },
+                { leyenda: 'Matematica', columna: 'Matematica', style: 'width:150px;', ordenable: false, filtro: false },
+                { leyenda: 'total', columna: 'total', style: 'width:150px;', ordenable: false, filtro: false },
+                { leyenda: 'Estado', columna: 'Estado', style: 'width:150px;', ordenable: false, filtro: false },
+                //{ style: 'width:100px;' },
+                //{ style: 'width:100px;' },
+            ],
+            //string.Format("{N:c}", m.Total)
+            modelo: [
+                    { propiedad: 'Periodo' },
+                    { propiedad: 'Moneda' },
+                    { propiedad: 'Fecha', class: 'text-right', formato: function (tr, obj, valor) { return moment(valor).format("DD/MM/YYYY"); } },
+                    { propiedad: 'Sepelio'},
+                    { propiedad: 'Garantizado' },
+                    { propiedad: 'Matematica' },
+                    { propiedad: 'total' },
+                    { propiedad: 'Estado' },
+
+                // BOTONES
+                @*
+                {
+                    formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/poliza/ver/")' + obj.IdPoliza,
+                            contenido: 'Visualizar',
+                            class: 'btn btn-info btn-xs'
+                        });
+                    }
+                },
+                {
+                    formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/poliza/crud/")' + obj.IdPoliza,
+                            contenido: 'Editar',
+                            class: 'btn btn-primary btn-xs'
+                        });
+                    },
+                }
+                    *@
+            ],
+
+            url: '@Url.Content("~/reserva/CargarReservas")',
+            paginable: true,
+            filtrable: true,
+            limite: [20, 60, 100],
+            columna: 'Periodo',
+            columna_orden: 'DESC'
+        });
+    })
+</script>

@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Periodos";
+}
+<h1 class="page-header">
+    <a href="~/periodo/crud" class="btn btn-default pull-right">Nuevo Periodo</a>
+    Periodos
+</h1>
+
+<div id="list"></div>
+
+<script>
+    $(document).ready(function () {
+        $("#list").anexGrid({
+            class: 'table-striped table-bordered table-condensed',
+            columnas: [
+                { leyenda: 'Año', columna: 'Anio', style: 'width:100px;', ordenable: true, filtro:true },
+                { leyenda: 'Mes', columna: 'Mes', style: 'width:100px;', ordenable: true, filtro: true },
+                { leyenda: 'Estado', columna: 'DescripcionEstado', style: 'width:100px;', ordenable: true, filtro: true },
+                { style: 'width:100px;' },
+                { style: 'width:100px;' },
+            ],
+
+            modelo: [
+                    {propiedad: 'Anio'},
+                    {propiedad: 'Mes'},
+                    {propiedad: 'DescripcionEstado' },
+
+                // BOTONES
+                {
+                    formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/periodo/ver/")' + obj.IdPeriodo,
+                            contenido: 'Visualizar',
+                            class: 'btn btn-info btn-xs'
+                        });
+                    }
+                },
+                {
+                    formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/periodo/crud/")' + obj.IdPeriodo,
+                            contenido: 'Editar',
+                            class: 'btn btn-primary btn-xs'
+                        });
+                    },
+                }
+            ],
+
+            url: '@Url.Content("~/periodo/CargarPeriodos")',
+            paginable: true,
+            filtrable: true,
+            limite: [20, 60, 100],
+            columna: 'IdPeriodo',
+            columna_orden: 'DESC'
+        });
+    })
+</script>

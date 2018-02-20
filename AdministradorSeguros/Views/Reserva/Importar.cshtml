@@ -1,0 +1,54 @@
+﻿@model Model.EntidadFiltro
+@{
+    ViewBag.Title = "Reserva";
+
+    List<Repositorio.tb_Periodo> periodos = ViewBag.Periodos;
+    List<Repositorio.tb_Moneda> monedas = ViewBag.Monedas;
+}
+
+<h1 class="page-header">
+    Calcular Reserva
+</h1>
+
+<div id="list"></div>
+
+@using (Html.BeginForm("CalcularReserva", "Reserva", FormMethod.Post, new { id = "frm-curso" }))
+{
+    <div class="form-group">
+        <label>Seleccione un periodo</label>
+        <select class="form-control" name="IdPeriodo">
+            @foreach (var c in periodos)
+            {
+                <option value="@c.IdPeriodo">@(c.Anio + c.Mes )</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Seleccione una moneda</label>
+        <select class="form-control" name="IdMoneda">
+            @foreach (var c in monedas)
+            {
+                <option value="@c.idMoneda">@c.DescripcionMoneda</option>
+            }
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label>Ingresa Fecha cálculo</label>
+        <div class="input-group">
+            <input type="date" id="FechaCalculo" name="FechaCalculo" />
+        </div>
+        @Html.ValidationMessageFor(x => x.FechaCalculo, null, new { @class = "label label-danger" })
+    </div>
+
+
+    <div class="text-right">
+        <button data-ajax="true" data-confirm="¿Esta seguro de calcular la reserva?" type="submit" class="btn btn-primary">Calcular Reserva</button>
+    </div>
+}
+<hr />
+
+
+

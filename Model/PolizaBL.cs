@@ -155,7 +155,7 @@ namespace Model
                         .Include(x => x.tb_PolizaDetalle.Select(y => y.tb_Estado))
                         .Include(x => x.tb_PolizaDetalle.Select(y => y.tb_TipoPersona))
                         .Where(x => x.IdPoliza == idPoliza)    
-                        .Take(100)                    
+                        //.Take(100)                    
                         .SingleOrDefault();
                                         
                 }

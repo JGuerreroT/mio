@@ -12,6 +12,7 @@ namespace Repositorio
         public tb_Moneda()
         {
             tb_Cotizacion = new HashSet<tb_Cotizacion>();
+            tb_Foto = new HashSet<tb_Foto>();
             tb_Poliza = new HashSet<tb_Poliza>();
         }
 
@@ -32,6 +33,9 @@ namespace Repositorio
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_Cotizacion> tb_Cotizacion { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_Foto> tb_Foto { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_Poliza> tb_Poliza { get; set; }

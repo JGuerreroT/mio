@@ -1,0 +1,25 @@
+﻿
+@using (Html.BeginForm("GuardarAdjunto", "Home", FormMethod.Post, new { id = "frm-adjunto" }))
+{
+    <!--<div class="panel panel-default">-->
+        <!--<div class="panel-heading">Información Periodo</div>-->
+        <!--<div class="panel-body">-->
+            <div class="form-group">
+                <label>Selecciona un documento a subir</label>
+                <input type="file" name="archivo" />
+            </div>
+            <div class="text-right">
+                <button data-ajax="true" data-confirm="¿Está seguro de guardar este registro?" type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+
+        <!--</div>-->
+    <!--</div>-->
+}
+
+
+<script>
+    //añade la validacion a los objetos PartialView
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse("#frm-adjunto");
+    })
+</script>

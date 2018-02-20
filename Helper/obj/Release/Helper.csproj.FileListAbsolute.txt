@@ -1,0 +1,5 @@
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Helper\bin\Release\Helper.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Helper\bin\Release\Helper.pdb
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Helper\obj\Release\Helper.csprojResolveAssemblyReference.cache
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Helper\obj\Release\Helper.dll
+D:\ProyectoTesis2\Sistema\AdministradorSeguros\Helper\obj\Release\Helper.pdb

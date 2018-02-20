@@ -82,6 +82,8 @@ namespace Repositorio
 
         public decimal PensionReserva { get; set; }
 
+        public int IdEstado { get; set; }
+
         public virtual tb_Foto tb_Foto { get; set; }
 
         public virtual tb_Poliza tb_Poliza { get; set; }

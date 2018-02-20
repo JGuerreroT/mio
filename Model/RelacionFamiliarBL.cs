@@ -33,5 +33,27 @@ namespace Model
             return relacionFamiliar.IdRelacionFamiliar;
         }
 
+        public tb_RelacionFamiliar ObtenerRelacionFamiliar(int idRelacionFamiliar)
+        {
+            var relacionFamiliar = new tb_RelacionFamiliar();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    relacionFamiliar = ctx.tb_RelacionFamiliar
+                        .Where(x => x.IdRelacionFamiliar == idRelacionFamiliar )
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;
+            }
+
+            return relacionFamiliar;
+        }
+
+
     }
 }

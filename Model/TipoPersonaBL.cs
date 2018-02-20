@@ -33,5 +33,27 @@ namespace Model
             return tipoPersona.IdTipoPersona;
         }
 
+        public tb_TipoPersona ObtenerTipoPersona(int idTipoPersona)
+        {
+            var tipoPersona = new tb_TipoPersona();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    tipoPersona = ctx.tb_TipoPersona
+                        .Where(x => x.IdTipoPersona == idTipoPersona )
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;
+            }
+
+            return tipoPersona;
+        }
+
+
     }
 }

@@ -60,5 +60,6 @@ namespace AdimistradorSeguros.Controllers
             return Json(rm);
         }
 
+
     }
 }

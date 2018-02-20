@@ -15,11 +15,11 @@
     <div class="form-group">
         <label>Seleccione un documento a subir</label>
         <input type="file" name="Ruta" id="Ruta"/>
-
+        @Html.ValidationMessageFor(x => x.Ruta, null, new { @class = "label label-danger" })
 
     </div>
     <div class="text-right">
-        <button data-ajax="true" data-confirm="¿Esta seguro que desea importar estas pólizas?" type="submit" class="btn btn-primary">Importar</button>
+        <button data-ajax="true" data-confirm="¿Esta seguro que desea importar estas pólizas?" type="submit" class="btn btn-primary">Importar Pólizas</button>
     </div>
 }
 
@@ -27,7 +27,7 @@
 <script>
 
     function MensajeGrabacion() {
-        alert("La importación fue exitosa.");
+        alert( "La importación fue exitosa.");
     }
 
 </script>

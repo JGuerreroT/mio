@@ -13,14 +13,14 @@ namespace Model
     public class CoberturaBL
     {
 
-        public int ObtenerCobertura(string descripcionCobertura)
+        public int ObtenerCobertura1(string descripcionCobertura)
         {
-            var cobertura = new tb_Cobertura();
+            var coberturaP = new tb_Cobertura();
             try
             {
                 using (var ctx = new SeguroContext())
                 {
-                    cobertura = ctx.tb_Cobertura
+                    coberturaP = ctx.tb_Cobertura
                         .Where(x => x.DescripcionCobertura.StartsWith(descripcionCobertura))
                                     .SingleOrDefault();
                 }
@@ -31,8 +31,51 @@ namespace Model
                 throw;//ELog.save(this, e); //throw;
             }
 
-            return cobertura.IdCobertura;
+            return coberturaP.IdCobertura;
         }
+
+        public tb_Cobertura ObtenerCobertura(int idCobertura)
+        {
+            var cobertura = new tb_Cobertura();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    cobertura = ctx.tb_Cobertura
+                        .Where(x => x.IdCobertura == idCobertura )
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;
+            }
+
+            return cobertura;
+        }
+
+        public List<tb_Cobertura> ListarCobertura()
+        {
+            var lista = new List<tb_Cobertura>();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    lista = ctx.tb_Cobertura.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;//
+            }
+
+            return lista;
+        }
+
+
+
 
     }
 }

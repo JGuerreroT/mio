@@ -129,6 +129,13 @@
   <ItemGroup>
     <Content Include="assets\css\bootstrap-theme.min.css" />
     <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\images\ui-icons_444444_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_555555_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_777620_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_777777_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="assets\css\jquery-ui.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\images\ajax-loader.gif" />
@@ -136,8 +143,10 @@
     <Content Include="assets\images\Logo.png" />
     <Content Include="assets\images\Logo2.jpg" />
     <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\DatePickerReady.js" />
     <Content Include="assets\js\ini.js" />
     <Content Include="assets\js\jquery-3.3.1.min.js" />
+    <Content Include="assets\js\jquery-ui.js" />
     <Content Include="assets\js\jquery.anexgrid.min.js" />
     <Content Include="assets\js\jquery.form.js" />
     <Content Include="assets\js\moment.js" />
@@ -158,6 +167,7 @@
     <Compile Include="Controllers\PeriodoController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\PolizaController.cs" />
+    <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\SexoController.cs" />
     <Compile Include="Filters\AdminFilters.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,6 +202,11 @@
     <Content Include="Views\Poliza\Ver.cshtml" />
     <Content Include="Views\Poliza\Importar.cshtml" />
     <Content Include="assets\js\botonFile.js" />
+    <Content Include="Motor\Motor.xlsx" />
+    <Content Include="Views\Reserva\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\a.pubxml" />
+    <Content Include="Views\Reserva\Importar.cshtml" />
+    <Content Include="Views\Poliza\Crud.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

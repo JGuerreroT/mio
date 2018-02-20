@@ -236,7 +236,6 @@ namespace Repositorio
             modelBuilder.Entity<tb_FotoDetallePoliza>()
                 .HasMany(e => e.tb_ReservaDetalle)
                 .WithRequired(e => e.tb_FotoDetallePoliza)
-                .HasForeignKey(e => e.IdReservaDetalle)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tb_IPC>()
@@ -279,6 +278,11 @@ namespace Repositorio
 
             modelBuilder.Entity<tb_Moneda>()
                 .HasMany(e => e.tb_Cotizacion)
+                .WithRequired(e => e.tb_Moneda)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tb_Moneda>()
+                .HasMany(e => e.tb_Foto)
                 .WithRequired(e => e.tb_Moneda)
                 .WillCascadeOnDelete(false);
 

@@ -33,5 +33,27 @@ namespace Model
             return salud.IdSalud;
         }
 
+        public tb_Salud ObtenerSalud(int idSalud)
+        {
+            var salud = new tb_Salud();
+            try
+            {
+                using (var ctx = new SeguroContext())
+                {
+                    salud = ctx.tb_Salud
+                        .Where(x => x.IdSalud == idSalud )
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;//ELog.save(this, e); //throw;
+            }
+
+            return salud;
+        }
+
+
     }
 }
