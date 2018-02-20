@@ -69,6 +69,29 @@ namespace AdministradorSeguros.Controllers
                 );
         }
 
+        public ActionResult Crud2(int id = 0)
+        {
+            ViewBag.Ramos = cobertura.ListarCobertura();
+            ViewBag.Modalidades = modalidad.ListarModalidad();
+            ViewBag.Periodos = periodo.ListarPeriodo();
+            ViewBag.Monedas = moneda.ListarMoneda();
+
+            var pol = new tb_Poliza();
+
+            //pol.FechaDevengue= Convert.ToDateTime(DateTime.Now.ToShortDateString()) ;
+            //pol.FechaEnvio = DateTime.Now;
+            //pol.FechaNotificacion = DateTime.Now;
+            //pol.FechaVigencia = DateTime.Now;
+
+            pol.FechaEnvio = Convert.ToDateTime("01/01/1900");
+            pol.IdCotizacion = 1;
+
+            return View(
+                id == 0 ? pol
+                        : poliza.ObtenerPoliza(id)
+                );
+        }
+
         public JsonResult CargarPolizas(AnexGRID grid)
         {
             return Json(poliza.ListarPolizas(grid));

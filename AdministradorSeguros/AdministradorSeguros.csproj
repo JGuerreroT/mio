@@ -210,6 +210,7 @@
     <Content Include="Views\Poliza\Crud.cshtml" />
     <Content Include="Views\Importar\Index.cshtml" />
     <Content Include="Views\Importar\Importar.cshtml" />
+    <Content Include="Views\Poliza\Crud2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

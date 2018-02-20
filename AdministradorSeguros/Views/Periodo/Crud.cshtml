@@ -17,7 +17,7 @@
 <!-- Tab panes -->
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="informacion">
-        @using (Html.BeginForm("Guardar", "Home", FormMethod.Post, new { id = "frm-periodo" }))
+        @using (Html.BeginForm("Guardar", "Periodo", FormMethod.Post, new { id = "frm-periodo" }))
         {
             @Html.HiddenFor(x => x.IdPeriodo)
             <div class="panel panel-default">

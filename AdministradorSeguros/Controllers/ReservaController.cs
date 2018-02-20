@@ -29,6 +29,7 @@ namespace AdministradorSeguros.Controllers
         private IpcBL ipc = new IpcBL();
         private ReservaBL reserva = new ReservaBL();
 
+        private Correo _correo = new Correo();
         private IWorkbook _workbook;
         private IWorksheet _worksheetCalculo;
 
@@ -267,6 +268,7 @@ namespace AdministradorSeguros.Controllers
                         {
                             //rm.function = "MensajeGrabacion()";
                             rm.SetResponse(false, "El cálculo de la reserva terminó con exito!");
+                            //_correo.EnviarCorreoGmail();
                             //rm.href = Url.Content("~/reserva/importar");
                         }
 

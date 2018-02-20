@@ -13,3 +13,12 @@ hora:  22:15:20
 las polizas se importaron
 hora:  22:23:56
 
+las polizas se importaron
+hora:  12:49:24
+
+las polizas se importaron
+hora:  13:02:08
+
+las polizas se importaron
+hora:  13:05:20
+

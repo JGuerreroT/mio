@@ -1,0 +1,291 @@
+﻿@model Repositorio.tb_Poliza
+@{
+    ViewBag.Title = Model.NumeroPoliza;
+
+    List<Repositorio.tb_Cobertura> cobertura = ViewBag.Ramos;
+    List<Repositorio.tb_Modalidad> modalidad = ViewBag.Modalidades;
+    List<Repositorio.tb_Periodo> periodo = ViewBag.Periodos;
+    List<Repositorio.tb_Moneda> moneda = ViewBag.Monedas;
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/poliza">Pólizas</a></li>
+    <li class="active">@Model.NumeroPoliza </li>
+</ol>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+    <a href="#informacion" aria-controls="informacion" role="tab" data-toggle="tab">Información del Caso</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="informacion">
+        @using (Html.BeginForm("Guardar", "Poliza", FormMethod.Post, new { id = "frm-poliza" }))
+        {
+            @Html.HiddenFor(x => x.IdPoliza)
+            <div class="panel panel-default">
+                <!--<div class="panel-heading">Información Periodo</div>-->
+                <div class="panel-body">
+
+                    <div class="panel-heading">Información del Caso</div>
+
+                    <div class="form-group">
+                        <label>Número de Póliza</label>
+                        @Html.TextBoxFor(x => x.NumeroPoliza, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.NumeroPoliza, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ramo</label>
+                        <select class="form-control" name="IdCobertura">
+                            @foreach (var c in cobertura)
+                            {
+                            <option value="@c.IdCobertura">@c.DescripcionCobertura</option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(x => x.IdCobertura, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Modalidad</label>
+                        <select class="form-control" name="IdModalidad">
+                            @foreach (var c in modalidad)
+                            {
+                            <option value="@c.IdModalidad">@c.DescripcionModalidad</option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(x => x.IdModalidad, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Periodo</label>
+                        <select class="form-control" name="IdPeriodo">
+                            @foreach (var c in periodo)
+                            {
+                                <option value="@c.IdPeriodo">@(c.Anio + c.Mes)</option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(x => x.IdPeriodo, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Estado</label>
+                        @if (Model.IdPeriodo == 0)
+                        {
+                            <input type="text" id="IdEstado" name="IdEstado" readonly value="" ) />
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(x => x.tb_Estado.DescripcionEstado, new { @class = "form-control" })
+                        }
+                        @Html.ValidationMessageFor(x => x.IdEstado, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fecha Notificación</label>
+                        @Html.TextBoxFor(x => x.FechaNotificacion, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.FechaNotificacion, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fecha Emisión</label>
+                        @Html.TextBoxFor(x => x.FechaVigencia, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.FechaVigencia, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fecha Devengue</label>
+                        @Html.TextBoxFor(x => x.FechaDevengue, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.FechaDevengue, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fecha Envío</label>
+                        @Html.TextBoxFor(x => x.FechaEnvio , new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.FechaEnvio, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="panel-heading">Datos de la Renta Vitalicia</div>
+
+                    <div class="form-group">
+                        <label>Prima</label>
+                        @Html.TextBoxFor(x => x.Prima, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Prima, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Periodo Diferido</label>
+                        @Html.TextBoxFor(x => x.PeriodoDiferido, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PeriodoDiferido, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Periodo Garantizado</label>
+                        @Html.TextBoxFor(x => x.PeriodoGarantizado, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PeriodoGarantizado, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>% Garantizado</label>
+                        @Html.TextBoxFor(x => x.PorcentajeGarantizado, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PorcentajeGarantizado, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gratificación</label>
+                        <select name="Gratificación" class="form-control">
+                            <option @(Model.Gratificacion == true ? "selected" : "") value="1">SI</option>
+                            <option @(Model.Gratificacion == false ? "selected" : "") value="0">NO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Derecho a Crecer</label>
+                        <select name="Gratificación" class="form-control">
+                            <option @(Model.DerechoACrecer == true ? "selected" : "") value="1">SI</option>
+                            <option @(Model.DerechoACrecer == false ? "selected" : "") value="0">NO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Calce</label>
+                        <select name="Gratificación" class="form-control">
+                            <option @(Model.Calce == true ? "selected" : "") value="1">SI</option>
+                            <option @(Model.Calce == false ? "selected" : "") value="0">NO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Repacto</label>
+                        <select name="Gratificación" class="form-control">
+                            <option @(Model.Repacto == true ? "selected" : "") value="1">SI</option>
+                            <option @(Model.Repacto == false ? "selected" : "") value="0">NO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Moneda</label>
+                        <select class="form-control" name="IdMoneda">
+                            @foreach (var c in moneda)
+                            {
+                                <option value="@c.idMoneda">@c.DescripcionMoneda</option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(x => x.IdMoneda, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>CIC Inicial</label>
+                        @Html.TextBoxFor(x => x.CICInical, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.CICInical, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>CIC Final</label>
+                        @Html.TextBoxFor(x => x.CICFInal , new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.CICFInal, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tasa Venta</label>
+                        @Html.TextBoxFor(x => x.TasaVenta, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.TasaVenta, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tasa Reserva</label>
+                        @Html.TextBoxFor(x => x.TasaReserva, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.TasaReserva, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pensión Inicial</label>
+                        @Html.TextBoxFor(x => x.PensionIncial, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PensionIncial, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pensión Devengue</label>
+                        @Html.TextBoxFor(x => x.PensionDevengue, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PensionDevengue, null, new { @class = "label label-danger" })
+                    </div>
+ 
+                    <div class="form-group">
+                        <label>Renta Temporal</label>
+                        <select name="RentaTemporal" class="form-control">
+                            <option @(Model.RentaTemporal == true ? "selected" : "") value="1">SI</option>
+                            <option @(Model.RentaTemporal == false ? "selected" : "") value="0">NO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>% Renta Temporal</label>
+                        @Html.TextBoxFor(x => x.PorcentajeRentaTemporal, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PorcentajeRentaTemporal, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Periodo Inicial</label>
+                        @Html.TextBoxFor(x => x.PeriodoInicialRentaTemporal, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PeriodoInicialRentaTemporal, null, new { @class = "label label-danger" })
+                    </div>
+
+                    <div class="panel-heading">Beneficiarios</div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Parentesco</th>
+                                    <th>Sexo</th>
+                                    <th>Nacimiento</th>
+                                    <th>Salud</th>
+                                    <th>% Pensión</th>
+                                    <th>Estado</th>
+                                    <th>Tipo Beneficiario</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var c in Model.tb_PolizaDetalle)
+                                {
+                                    <tr>
+                                        <td>@(c.tb_Persona.Nombre + ' ' + c.tb_Persona.Apellido)</td>
+                                        <td>@c.tb_RelacionFamiliar.DescripcionRelacionFamiliar </td>
+                                        <td>@c.tb_Persona.tb_Sexo.DescripcionSexo </td>
+                                        <td>@c.tb_Persona.FechaNacimiento.ToShortDateString()</td>
+                                        <td>@c.tb_Salud.DescripcionSalud </td>
+                                        <td>@c.PorcentajeBeneficio.ToString()</td>
+                                        <td>@c.tb_Estado.DescripcionEstado </td>
+                                        <td>@c.tb_TipoPersona.DescripcionTipoPersona </td>
+                                        <th>@*
+                                            <a class="btn btn-xs btn-default" href="~/poliza/ver/@c.IdPersona">Visualizar</a>
+                                            <a class="btn btn-xs btn-primary" href="~/poliza/crud/@c.IdPersona ">Editar</a>
+                                                *@
+                                        </th>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="text-right">
+                <button data-ajax="true" data-confirm="¿Está seguro de guardar este registro?" type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        }
+    </div>
+</div>
+
+<hr />
+
+<script>
+
+    function MensajeGrabacion() {
+        alert("El periodo se registró de forma exitosa");
+    }
+
+</script>
