@@ -1,0 +1,6 @@
+Model.PolizaBL 01:26:21
+ListarPolizas - An error occurred while executing the command definition. See the inner exception for details.
+
+Model.PolizaBL 01:35:01
+ListarPolizas - An error occurred while executing the command definition. See the inner exception for details.
+

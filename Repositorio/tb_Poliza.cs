@@ -13,6 +13,11 @@ namespace Repositorio
         {
             tb_FotoDetalle = new HashSet<tb_FotoDetalle>();
             tb_PolizaDetalle = new HashSet<tb_PolizaDetalle>();
+
+            FechaDev = DateTime.Now.ToString("MM/dd/yyyy");
+            FechaEnv = DateTime.Now.ToString("MM/dd/yyyy");
+            FechaNot = DateTime.Now.ToString("MM/dd/yyyy");
+            FechaVig = DateTime.Now.ToString("MM/dd/yyyy");
         }
 
         [Key]
@@ -81,6 +86,18 @@ namespace Repositorio
         public decimal PensionReserva { get; set; }
 
         public int IdEstado { get; set; }
+
+        [StringLength(10)]
+        public string FechaDev { get; set; }
+
+        [StringLength(10)]
+        public string FechaVig { get; set; }
+
+        [StringLength(10)]
+        public string FechaEnv { get; set; }
+
+        [StringLength(10)]
+        public string FechaNot { get; set; }
 
         public virtual tb_Cobertura tb_Cobertura { get; set; }
 

@@ -43,6 +43,12 @@ namespace Repositorio
 
         public int IdSexo { get; set; }
 
+        [StringLength(10)]
+        public string FechaNac { get; set; }
+
+        [StringLength(10)]
+        public string FechaFall { get; set; }
+
         public virtual tb_Estado tb_Estado { get; set; }
 
         public virtual tb_Sexo tb_Sexo { get; set; }

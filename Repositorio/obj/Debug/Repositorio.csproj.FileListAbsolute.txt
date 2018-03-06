@@ -7,3 +7,11 @@ D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\bin\Debug\EntityFrame
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.dll
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.pdb
 D:\ProyectoTesis2\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.csprojResolveAssemblyReference.cache
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\bin\Debug\Repositorio.dll
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\bin\Debug\Repositorio.pdb
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\bin\Debug\EntityFramework.dll
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\bin\Debug\EntityFramework.SqlServer.dll
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\bin\Debug\EntityFramework.xml
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\bin\Debug\EntityFramework.SqlServer.xml
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.dll
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.pdb

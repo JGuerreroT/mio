@@ -157,7 +157,12 @@ namespace Model
                         .Where(x => x.IdPoliza == idPoliza)    
                         //.Take(100)                    
                         .SingleOrDefault();
-                                        
+
+                    poliza.FechaDev= poliza.FechaDevengue.ToString("MM/dd/yyyy");
+                    poliza.FechaEnv= poliza.FechaEnvio.ToString("MM/dd/yyyy");
+                    poliza.FechaNot= poliza.FechaNotificacion.ToString("MM/dd/yyyy");
+                    poliza.FechaVig= poliza.FechaVigencia.ToString("MM/dd/yyyy");
+                    
                 }
             }
             catch (Exception e)

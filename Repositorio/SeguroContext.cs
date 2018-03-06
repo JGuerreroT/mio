@@ -352,6 +352,14 @@ namespace Repositorio
                 .IsFixedLength();
 
             modelBuilder.Entity<tb_Persona>()
+                .Property(e => e.FechaNac)
+                .IsFixedLength();
+
+            modelBuilder.Entity<tb_Persona>()
+                .Property(e => e.FechaFall)
+                .IsFixedLength();
+
+            modelBuilder.Entity<tb_Persona>()
                 .HasMany(e => e.tb_PolizaDetalle)
                 .WithRequired(e => e.tb_Persona)
                 .WillCascadeOnDelete(false);
@@ -395,6 +403,22 @@ namespace Repositorio
             modelBuilder.Entity<tb_Poliza>()
                 .Property(e => e.PensionReserva)
                 .HasPrecision(18, 5);
+
+            modelBuilder.Entity<tb_Poliza>()
+                .Property(e => e.FechaDev)
+                .IsFixedLength();
+
+            modelBuilder.Entity<tb_Poliza>()
+                .Property(e => e.FechaVig)
+                .IsFixedLength();
+
+            modelBuilder.Entity<tb_Poliza>()
+                .Property(e => e.FechaEnv)
+                .IsFixedLength();
+
+            modelBuilder.Entity<tb_Poliza>()
+                .Property(e => e.FechaNot)
+                .IsFixedLength();
 
             modelBuilder.Entity<tb_Poliza>()
                 .HasMany(e => e.tb_FotoDetalle)

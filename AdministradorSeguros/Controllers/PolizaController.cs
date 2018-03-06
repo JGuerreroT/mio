@@ -55,18 +55,21 @@ namespace AdministradorSeguros.Controllers
 
             var pol = new tb_Poliza();
 
-            //pol.FechaDevengue= Convert.ToDateTime(DateTime.Now.ToShortDateString()) ;
-            //pol.FechaEnvio = DateTime.Now;
-            //pol.FechaNotificacion = DateTime.Now;
-            //pol.FechaVigencia = DateTime.Now;
+            if (id == 0)
+            {
+                return View(pol);
+            }
+            else
+            {
+                pol=poliza.ObtenerPoliza(id);
+                return View(pol);
+            }
 
-            pol.FechaEnvio = Convert.ToDateTime("01/01/1900");
-            pol.IdCotizacion = 1;
 
-            return View(
-                id == 0 ? pol
-                        : poliza.ObtenerPoliza(id)
-                );
+            //return View(
+            //    id == 0 ? pol
+            //            : poliza.ObtenerPoliza(id)
+            //    );
         }
 
         public ActionResult Crud2(int id = 0)
@@ -78,18 +81,21 @@ namespace AdministradorSeguros.Controllers
 
             var pol = new tb_Poliza();
 
-            //pol.FechaDevengue= Convert.ToDateTime(DateTime.Now.ToShortDateString()) ;
-            //pol.FechaEnvio = DateTime.Now;
-            //pol.FechaNotificacion = DateTime.Now;
-            //pol.FechaVigencia = DateTime.Now;
+            if (id == 0)
+            {
+                return View(pol);
+            }
+            else
+            {
+                pol = poliza.ObtenerPoliza(id);
+                return View(pol);
+            }
 
-            pol.FechaEnvio = Convert.ToDateTime("01/01/1900");
-            pol.IdCotizacion = 1;
 
-            return View(
-                id == 0 ? pol
-                        : poliza.ObtenerPoliza(id)
-                );
+            //return View(
+            //    id == 0 ? pol
+            //            : poliza.ObtenerPoliza(id)
+            //    );
         }
 
         public JsonResult CargarPolizas(AnexGRID grid)
