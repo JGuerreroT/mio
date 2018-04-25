@@ -2,7 +2,6 @@
     ViewBag.Title = "Polizas";
 }
 <h1 class="page-header">
-    <a href="~/Poliza/crud2" class="btn btn-default pull-right">Nueva Póliza</a>
     Listado de Pólizas
 </h1>
 
@@ -22,7 +21,6 @@
                 { leyenda: 'Moneda', columna: 'DescripcionMoneda', style: 'width:100px;', ordenable: false, filtro: false },
                 { leyenda: 'Notificación', columna: 'FechaNotificacion', style: 'width:100px;', ordenable: false, filtro: false },
                 { leyenda: 'Estado', columna: 'DescripcionEstado', style: 'width:100px;', ordenable: false, filtro: false },
-                { style: 'width:100px;' },
                 { style: 'width:100px;' },
             ],
 
@@ -47,15 +45,6 @@
                             class: 'btn btn-info btn-xs'
                         });
                     }
-                },
-                {
-                    formato: function (tr, obj, valor) {
-                        return anexGrid_link({
-                            href: '@Url.Content("~/poliza/crud2/")' + obj.IdPoliza,
-                            contenido: 'Editar',
-                            class: 'btn btn-primary btn-xs'
-                        });
-                    },
                 }
             ],
 

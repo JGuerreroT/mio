@@ -15,3 +15,4 @@ D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\bin\Debug\EntityFrame
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\bin\Debug\EntityFramework.SqlServer.xml
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.dll
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.pdb
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Repositorio\obj\Debug\Repositorio.csprojResolveAssemblyReference.cache

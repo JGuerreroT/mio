@@ -7,3 +7,4 @@ D:\ProyectoTesis3\Sistema\AdministradorSeguros\PlantillaObjetos\bin\Debug\Planti
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\PlantillaObjetos\bin\Debug\PlantillaObjetos.pdb
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\PlantillaObjetos\obj\Debug\PlantillaObjetos.dll
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\PlantillaObjetos\obj\Debug\PlantillaObjetos.pdb
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\PlantillaObjetos\obj\Debug\PlantillaObjetos.csprojResolveAssemblyReference.cache

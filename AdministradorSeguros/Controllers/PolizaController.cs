@@ -81,6 +81,13 @@ namespace AdministradorSeguros.Controllers
 
             var pol = new tb_Poliza();
 
+            ////Correo mail = new Correo();
+            
+            ////var path = Path.Combine(Server.MapPath("~/Motor/"), "Motor.xlsx");
+
+            ////mail.EnviarCorreoOuttlook("prueba de envio",true , path);
+
+
             if (id == 0)
             {
                 return View(pol);
@@ -337,7 +344,10 @@ namespace AdministradorSeguros.Controllers
             return Json(rm);
         }
 
-
+        public ActionResult Reporte()
+        {
+            return Redirect("~/Reportes/frm_reporte.aspx");
+        }
 
     }
 }

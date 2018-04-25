@@ -7,3 +7,4 @@ D:\ProyectoTesis3\Sistema\AdministradorSeguros\Helper\bin\Debug\Helper.dll
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\Helper\bin\Debug\Helper.pdb
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\Helper\obj\Debug\Helper.dll
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\Helper\obj\Debug\Helper.pdb
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache

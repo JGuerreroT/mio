@@ -7,3 +7,4 @@ D:\ProyectoTesis3\Sistema\AdministradorSeguros\ManejadorErrores\bin\Debug\Maneja
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\ManejadorErrores\bin\Debug\ManejadorErrores.pdb
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\ManejadorErrores\obj\Debug\ManejadorErrores.dll
 D:\ProyectoTesis3\Sistema\AdministradorSeguros\ManejadorErrores\obj\Debug\ManejadorErrores.pdb
+D:\ProyectoTesis3\Sistema\AdministradorSeguros\ManejadorErrores\obj\Debug\ManejadorErrores.csprojResolveAssemblyReference.cache

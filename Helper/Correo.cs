@@ -10,23 +10,30 @@ namespace Helper
 {
     public class Correo
     {
-        public void EnviarCorreoOuttlook(string mensaje)
+        public void EnviarCorreoOuttlook(string mensaje, bool _ruta, string ruta)
         {
             try
             {
                 var mail = new MailMessage();
-                mail.From = new MailAddress("u201100215@upc.edu.pe", "sistema seguros");
+                mail.From = new MailAddress("jaime.guerrerot@outlook.com");
                 mail.To.Add("jaime.guerrerot@outlook.com");
                 mail.Subject = "Correo desde contacto";
                 mail.IsBodyHtml = true;
                 mail.Body = mensaje;
+                mail.Priority = MailPriority.Normal;
 
-                var SmtpServer = new SmtpClient("smtp.live.com"); // or "smtp.gmail.com"
+                if (_ruta==true )
+                {
+                    Attachment adjunto = new Attachment(ruta);
+                    mail.Attachments.Add(adjunto);
+                }
+
+                var SmtpServer = new SmtpClient();
+                SmtpServer.Host = "smtp-mail.outlook.com";
                 SmtpServer.Port = 587;
                 SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
-                SmtpServer.UseDefaultCredentials = false;
-
-                // Agrega tu correo y tu contraseña, hemos usado el servidor de Outlook.
+                SmtpServer.UseDefaultCredentials = false;                
+                
                 SmtpServer.Credentials = new System.Net.NetworkCredential("jaime.guerrerot@outlook.com", "Sergio1@@5");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);

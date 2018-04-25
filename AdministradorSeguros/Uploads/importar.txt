@@ -25,3 +25,6 @@ hora:  13:05:24
 las polizas se importaron
 hora:  19:24:11
 
+las polizas se importaron
+hora:  17:21:41
+
